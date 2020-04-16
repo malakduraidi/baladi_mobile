@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { Home3Page } from './home3.page';
 import { PipesModule } from 'src/pipes/pipes.module';
 import { ShareModule } from 'src/components/share/share.module';
+// import { OrderItemComponent } from 'src/components/order-item/order-item.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  // exports: [
+  //   OrderItemComponent
+
+  // ],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,7 +29,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     PipesModule,
     ShareModule,
+    // OrderItemComponent
   ],
-  declarations: [Home3Page]
+  declarations: [Home3Page] //OrderItemComponent
 })
 export class Home3PageModule {}

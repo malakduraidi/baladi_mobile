@@ -1,151 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-grid style="direction:ltr">
-        <!-- <ion-col size="2"></ion-col> -->
-        <ion-col size="2">
-          <img [src]="convertedAppIconImage" style="height:30px !important" alt="logo"/>
-        </ion-col>
-        <!-- <ion-col size="8" style="position:relative;top:-10px">  {{'RUBIK_SMART_SOLUTIONS' | translate}}</ion-col> -->
-      </ion-grid>
-   
-    <ion-title>
-      <!-- <ion-img src="assets/logo_header.png" alt="logo"></ion-img> -->
-
-    </ion-title>
-    
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding-bottom">
-  <!-- <app-banner></app-banner> -->
-  <product-main-slider-list></product-main-slider-list>
-  <ion-row class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="apps"></ion-icon>
-      {{'CATEGORIES'|translate}}
-    </ion-button>
-  </ion-row>
-  <!-- category avatar -->
-      <product-category-list-dynamic [searchable]="false" [viewType]="'kanban'" (onItemClick)="openSubCategories($event)" > </product-category-list-dynamic>
-
-  <!-- <ion-grid class="ion-no-padding">
-    <ion-row class="ion-no-padding">
- -->
-
-
-      <!-- <ion-col *ngFor="let c of shared.categories" (click)="openSubCategories(c)" size="6"
-        class="ion-no-padding animate-item">
-        <ion-card>
-          <ion-avatar>
-            <img *ngIf="c.image" src="{{config.imgUrl+c.image}}" />
-          </ion-avatar>
-          <ion-text>
-            <h6>{{c.name|translate}}</h6>
-            <p>{{c.count}} {{'Products'| translate }}</p>
-          </ion-text>
-        </ion-card>
-      </ion-col> -->
-    <!-- </ion-row>
-  </ion-grid> -->
-
-  <!-- Flash sale items products -->
-
-  <!-- TODO show show the flas sale -->
-  <!-- <div class="module" *ngIf="shared.flashSaleProducts.length!=0">
-    <ion-row class="top-icon-header">
-      <ion-button fill="clear">
-        <ion-icon slot="start" name="md-clock"></ion-icon>
-        {{'Flash Sale'|translate}}
-      </ion-button>
-    </ion-row>
-    <ion-slides [options]="sliderConfig">
-      <ion-slide *ngFor="let p of shared.flashSaleProducts">
-        <app-product [data]="p" [type]="'flash'"></app-product>
-      </ion-slide>
-    </ion-slides>
-  </div> -->
-
-  <ion-row class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="albums-outline"></ion-icon>
-      {{ 'NEWEST_PRODUCTS' | translate }}
-    </ion-button>
-  </ion-row>
-
-  <!-- <ion-slides [options]="sliderConfig">
-    <ion-slide *ngFor="let p of shared.tab1">
-      <app-product [data]="p" [type]="'normal'"></app-product>
-    </ion-slide>
-    <ion-slide>
-      <ion-button fill="clear" (click)="openProducts('top seller')"> {{'Shop More'| translate}}
-        <ion-icon name="arrow-redo-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-slide>
-  </ion-slides>
- -->
-    <ion-slides  [options]="sliderConfig">
-      <ion-slide *ngFor="let p of (newProducts$ | async)">
-        <app-product [data]="p" [type]="'normal'"></app-product>
-      </ion-slide>
-      <ion-slide>
-        <ion-button fill="clear" (click)="openProducts('new')"> {{'SHOP_MORE'| translate}}
-
-          <ion-icon name="arrow-redo-circle-outline"></ion-icon>
-        </ion-button>
-      </ion-slide>
-
-    </ion-slides>
-
-
-
-
-  <ion-row class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="bookmark-outline"></ion-icon>
-      {{ 'DEAL_PRODUCTS' | translate }}
-    </ion-button>
-  </ion-row>
-
-  <ion-slides [options]="sliderConfig">
-     <ion-slide *ngFor="let p of (dealProducts$ | async)">
-      <app-product [data]="p" [type]="'normal'"></app-product>
-    </ion-slide>
-    <ion-slide>
-      <ion-button fill="clear" (click)="openProducts('special')"> {{'SHOP_MORE'| translate}}
-        <ion-icon name="arrow-redo-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-slide>
-  </ion-slides>
-  <ion-row class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="star-outline"></ion-icon>
-      {{ 'TOP_SOLD' | translate }}
-    </ion-button>
-  </ion-row>
-
-  <ion-slides [options]="sliderConfig">
-     <ion-slide *ngFor="let p of (topSoldProducts$ | async)">
-      <app-product [data]="p" [type]="'normal'"></app-product>
-    </ion-slide>
-    <ion-slide>
-      <ion-button fill="clear" (click)="openProducts('most liked')"> {{'SHOP_MORE'| translate}}
-        <ion-icon name="arrow-redo-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-slide>
-  </ion-slides>
-  <!-- For Vendor List -->
-  <!--<app-vendor-list></app-vendor-list>-->
-  <!-- recently view Heading -->
-  <ion-row *ngIf="shared.recentViewedProducts.length!=0" class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="list-outline"></ion-icon>
-      {{'RECENTLY_VIEWED'|translate}}
-    </ion-button>
-  </ion-row>
-  <!-- recently viewed swipe slider -->
-  <ion-slides #recentSlider [options]="sliderConfig">
-    <ion-slide *ngFor="let p of shared.recentViewedProducts">
-      <app-product [data]="p" [type]="'recent'"></app-product>
-    </ion-slide>
-  </ion-slides>
-</ion-content>
+    <ion-toolbar>
+     
+      <ion-title>
+        <ion-img src="assets/logo_header.png" alt="logo"></ion-img>
+      </ion-title>
+      
+    </ion-toolbar>
+  
+    <ion-segment (ionChange)="segmentChanged($event)" scrollable>
+      <ion-segment-button value="waiting" checked>
+        <ion-label translate>WAITING</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="in_receiving">
+        <ion-label translate>INـRECEIVING</ion-label>
+      </ion-segment-button>
+  
+      <ion-segment-button value="pickedup">
+        <ion-label translate>PICKEDUP</ion-label>
+      </ion-segment-button>
+  
+      <ion-segment-button value="in_delivery">
+        <ion-label translate>IN_DELIVERY</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        <ion-label translate>COMPLETED</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  
+  </ion-header>
+  <ion-content class="ion-padding-bottom">
+  
+    <ion-list>
+      <span *ngFor="let order of orders ">
+  
+        <app-order-item [order]="order"></app-order-item>
+  
+      </span>
+  
+    </ion-list>
+  
+  </ion-content>

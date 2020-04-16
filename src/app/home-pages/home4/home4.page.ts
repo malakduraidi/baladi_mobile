@@ -23,77 +23,237 @@ export class Home4Page implements OnInit {
     slidesPerView: this.config.productSlidesPerPage,
     spaceBetween: 0
   }
-  newProducts$ :Observable<IProductTemplate[]>
-  dealProducts$ :Observable<IProductTemplate[]>
-  topSoldProducts$ :Observable<IProductTemplate[]>
-  limit: number=10;
-  offset: number=0;
-  convertedAppIconImage: any;
+  orders: any[] = [
+   
+   
+    
+  ];
+
+  waiting_list : any[] = [
+    {
+      customer_name:'obada',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'Tomato',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    },
+    {
+      customer_name:'Ram',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'Tomato',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    },
+    {
+      customer_name:'malak',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'Tomato',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    },
+    {
+      customer_name:'Maher',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'Annanas',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    },
+    {
+      customer_name:'Sajed',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'cheese',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    },
+    {
+      customer_name:'sabrin',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'Tomato',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    },
+    {
+      customer_name:'noor',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'Tomato',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    },
+    {
+      customer_name:'khalid',
+      address:'Ramallah - Masyon - near asal w basal',
+      customer_mobile:'0599 111 222',
+      customer_phone:'29644444',
+      product_name: 'Tomato',
+      price: ' 30 nis',
+      quantity:'4 Kg',
+      remaining_time:'1 day 22:40:30',
+      state:'waiting'
+    }
+  ]
+
+  receiving_list : any[] = [
+    {
+      customer_name:'khaled',
+      address:'Nablus - Rafidia - near kan ya ma kan resturant',
+      customer_mobile:'0599 111 333',
+      customer_phone:'29600000',
+      product_name: 'Milk',
+      price: ' 20 nis',
+      quantity:'2 gallon',
+      remaining_time:'0 day 22:40:30',
+      state:'in_receiving'
+    },
+    {
+      customer_name:'kareem',
+      address:'Nablus - Rafidia - near kan ya ma kan resturant',
+      customer_mobile:'0599 111 333',
+      customer_phone:'29600000',
+      product_name: 'Milk',
+      price: ' 20 nis',
+      quantity:'2 gallon',
+      remaining_time:'0 day 22:40:30',
+      state:'in_receiving'
+    }
+  ]
+
+  completed_list:any[] = [
+    {
+      customer_name:'obada',
+      address:'Qalqilia - Baqa Al hatab village',
+      customer_mobile:'0599 111 444',
+      customer_phone:'296011111',
+      product_name: 'Olive',
+      price: ' 600 nis',
+      quantity: '4 gallon',
+      remaining_time:'2 day 22:40:30',
+      state:'completed'
+    }
+  ]
+
+  delivery_list=[
+    {
+    customer_name:'Mohammad',
+    address:'Qalqilia - Baqa Al hatab village',
+    customer_mobile:'0599 111 444',
+    customer_phone:'296011111',
+    product_name: 'Olive',
+    price: ' 600 nis',
+    quantity: '4 gallon',
+    remaining_time:'2 day 22:40:30',
+    state:'in_delivery'
+  },
+  {
+    customer_name:'Mohammad',
+    address:'Qalqilia - Baqa Al hatab village',
+    customer_mobile:'0599 111 444',
+    customer_phone:'296011111',
+    product_name: 'Olive',
+    price: ' 600 nis',
+    quantity: '4 gallon',
+    remaining_time:'2 day 22:40:30',
+    state:'in_delivery'
+  }
+]
+
+  pickedup_list:any[]=[
+    {
+      customer_name:'Ahmad',
+      address:'Tulkarem - irtah - near kan ya ma kan resturant',
+      customer_mobile:'0599 111 333',
+      customer_phone:'29600000',
+      product_name: 'Dates',
+      price: ' 20 nis',
+      quantity:'2 Kg',
+      remaining_time:'0 day 22:40:30',
+      state:'pickedup'
+    },
+    {
+      customer_name:'khaled',
+      address:'Tubas - far3a - near Ain sakot',
+      customer_mobile:'0599 111 333',
+      customer_phone:'29600000',
+      product_name: 'Cucumber',
+      price: ' 20 nis',
+      quantity:'10 Kg',
+      remaining_time:'0 day 22:40:30',
+      state:'pickedup'
+    },
+    {
+      customer_name:'kareem',
+      address:'Nablus - Rafidia - near kan ya ma kan resturant',
+      customer_mobile:'0599 111 333',
+      customer_phone:'29600000',
+      product_name: 'Milk',
+      price: ' 20 nis',
+      quantity:'2 gallon',
+      remaining_time:'0 day 22:40:30',
+      state:'pickedup'
+    }
+  ]
+
   constructor(
     public nav: NavController,
     public config: ConfigService,
     // public events: Events,
     public shared: SharedDataService,
-    private productTemplateStore:Store<ProductTemplateState>,
-    private sanitizer:DomSanitizer
   ) { }
-
-  ionViewDidEnter() {
-    this.shared.hideSplashScreen();
-
-  }
-getProducts(){
-  this.productTemplateStore.dispatch(new fromProductTemplateActions.LoadFeatureHttp
-    ({type:'new',data:{domain:[['ks_product_tags.name','=','New']],limit:this.limit,offset:this.offset,fields:ProductTemplateOdooFields}}))
-  this.productTemplateStore.dispatch(new fromProductTemplateActions.LoadFeatureHttp
-    ({type:'deal',data:{domain:[['ks_product_tags.name','=','Deal']],limit:this.limit,offset:this.offset,fields:ProductTemplateOdooFields}}))
-  this.productTemplateStore.dispatch(new fromProductTemplateActions.LoadFeatureHttp
-    ({type:'top_sold',data:{domain:[['ks_product_tags.name','=','Top Sold']],limit:this.limit,offset:this.offset,fields:ProductTemplateOdooFields}}))
-
-
-
-
-}
-  // openSubCategories(parent) {
-  //   let count = 0;
-  //   for (let value of this.shared.allCategories) {
-  //     if (parent.id == value.parent_id) count++;
-  //   }
-  //   if (count != 0)
-  //     this.nav.navigateForward(this.config.currentRoute + "/categories/" + parent.id + "/" + parent.name);
-  //   else
-  //     this.nav.navigateForward(this.config.currentRoute + "/products/" + parent.id + "/" + parent.name + "/newest");
-
-  // }
-openSubCategories(category) {
-     if (category.child_id && category.child_id.length > 0) {
-      let parent = {
-        id: category.id,
-        name: category.name
-      }
-    this.nav.navigateForward(this.config.currentRoute + "/" + 'categories'+ "/"+parent.id+"/"+parent.name);
-    }
-    else 
-    {
-      this.nav.navigateForward(this.config.currentRoute + "/products/" + category.id + "/" + category.name + "/newest");
-
-    }
-
-
-
-  }
-
   openProducts(value) {
     this.nav.navigateForward(this.config.currentRoute + "/products/0/0/" + value);
   }
+  segmentChanged(event) {
+    // let searchFilter = null;
+    // get the role incase of internet loss connection
+    if (event && event.detail && event.detail.value) {
+
+      const value = event.detail.value;
+      if (value === 'waiting'){
+        this.orders = this.waiting_list
+      }else if (value === 'in_receiving')
+        this.orders = this.receiving_list
+      else if (value === 'pickedup')
+        this.orders = this.pickedup_list
+      else if (value === 'in_delivery')
+        this.orders = this.delivery_list
+      else if (value === 'completed')
+        this.orders = this.completed_list
+    
+    }
+   
+  }
   ngOnInit() {
-      this.newProducts$=this.productTemplateStore.select(fromProductTemplateSelectors.selectByFeature('new'))
-      this.dealProducts$=this.productTemplateStore.select(fromProductTemplateSelectors.selectByFeature('deal'))
-      this.topSoldProducts$=this.productTemplateStore.select(fromProductTemplateSelectors.selectByFeature('top_sold'))
-      this.getProducts()
-
-    setTimeout( () => { this.convertedAppIconImage = this.sanitizer.bypassSecurityTrustUrl("data:image/jpeg;base64," + this.config.appSettings.app_icon_image) } , 3000)
-
+    this.orders = this.waiting_list
+  }
+  ionViewDidEnter() {
+    this.shared.hideSplashScreen();
   }
 
 }
