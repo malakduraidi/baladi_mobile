@@ -123,6 +123,16 @@ const routes: Routes = [
           productsPage
         ]
       },
+    {
+        path: 'account',
+        children: [
+          {
+            path: '', loadChildren: () => import('../account/account.module').then(m => m.AccountPageModule)
+          },
+          productDetailPage,
+          productsPage
+        ]
+      },
       {
         path: 'settings',
         children: [
@@ -141,6 +151,12 @@ const routes: Routes = [
           {
             path: 'news-detail', loadChildren: () => import('../news-detail/news-detail.module').then(m => m.NewsDetailPageModule)
           },
+          {
+            path: 'tabs-supply/account', loadChildren: () => import('../account/account.module').then(m => m.AccountPageModule)
+          },
+          // {
+          //   path: 'news-detail', loadChildren: () => import('../news-detail/news-detail.module').then(m => m.NewsDetailPageModule)
+          // },
           {
             path: 'news-list/:id/:name', loadChildren: () => import('../news-list/news-list.module').then(m => m.NewsListPageModule)
           },

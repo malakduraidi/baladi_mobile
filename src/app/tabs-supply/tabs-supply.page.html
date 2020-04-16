@@ -6,14 +6,16 @@
       <ion-label>
         <b>{{'Orders'|translate}}</b>
       </ion-label>
-
     </ion-tab-button>
+
     <ion-tab-button tab="search">
+
       <img *ngIf="showImg()" src="assets/left-menu-icon/search.png">
       <ion-icon *ngIf="!showImg()" name="search"></ion-icon>
       <ion-label>
         <b>{{'SEARCH'|translate}}</b>
       </ion-label>
+
     </ion-tab-button>
     <!-- <ion-tab-button tab="categories">
       <img *ngIf="showImg()" style="width: 40%;" src="assets/left-menu-icon/category.png">
@@ -30,11 +32,10 @@
         <b>{{'MY_CART'|translate}}</b>
       </ion-label>
     </ion-tab-button> -->
-    <ion-tab-button tab="settings">
-      <img *ngIf="showImg()" src="assets/left-menu-icon/user.png">
-      <ion-icon *ngIf="!showImg()" name="person"></ion-icon>
+    <ion-tab-button tab="account">
+      <ion-icon name="cash-outline"></ion-icon>
       <ion-label>
-        <b>{{'Supplier'|translate}}</b>
+        <b>{{'Account'|translate}}</b>
       </ion-label>
     </ion-tab-button>
   </ion-tab-bar>

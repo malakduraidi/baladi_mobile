@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title center style="margin:0 auto;text-align: center;">
+      {{'My Account'| translate }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="account-page">
+  <!-- *ngIf="post.image" -->
+  <ion-slides pager=true paginationType="bullets" class="animate-item">
+    <ion-slide *ngFor="let post of featuredPosts" (click)="showPostDetail(post)">
+      <ion-img src="{{config.imgUrl+post.account_image}}" class="animate-item"></ion-img>
+    </ion-slide>
+  </ion-slides>
+  <!-- top Segments  -->
+  <ion-segment [(ngModel)]="segments">
+    <ion-segment-button value="opening">{{'Opening Balance' |translate}}</ion-segment-button>
+    <ion-segment-button value="history">{{ 'History Balance' | translate }} </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="segments">
+
+    <div *ngSwitchCase="'opening'">
+      <ion-list>
+        <ion-item lines="full" *ngFor="let balance of openingBalance" (click)="showPostDetail(post)" class="animate-item">
+          <ion-thumbnail slot="start">
+            <ion-img src="{{balance.product_image}}"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{balance.product_name}} </h2>
+          <h6> <ion-label> {{balance.quantity}} KG </ion-label> </h6>
+        <h6> {{balance.price}} ₪ </h6>
+
+            <!-- <p [innerHTML]="post.account_description"></p> -->
+          </ion-label>
+          <ion-label>
+            <ion-button>Money Received</ion-button>
+          </ion-label>
+        </ion-item>
+        <ion-infinite-scroll #infinite (ionInfinite)="getPosts()">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+    </div>
+<div *ngSwitchCase="'history'">
+  <ion-list>
+    <ion-item lines="full" *ngFor="let balance of openingBalance" (click)="showPostDetail(post)" class="animate-item">
+      <ion-thumbnail slot="start">
+        <ion-img src="{{balance.product_image}}"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+            <h2>{{balance.product_name}} </h2>
+          <h6> <ion-label> {{balance.quantity}} KG </ion-label> </h6>
+        <h6> {{balance.price}} ₪ </h6>
+
+
+        <!-- <p [innerHTML]="post.account_description"></p> -->
+      </ion-label>
+      <ion-label>
+       <p>
+
+       Money Received at
+       </p> 
+       <p>
+
+         {{balance.received_date}}
+       </p>
+      </ion-label>
+    </ion-item>
+ 
+  </ion-list>
+
+</div>
+</div>
+</ion-content>
+<ion-footer>
+  <ion-card class="ion-padding">
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="6">
+          <strong> {{'TOTAL'|translate}}</strong>
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          <strong>{{'950'| curency}}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-footer>
