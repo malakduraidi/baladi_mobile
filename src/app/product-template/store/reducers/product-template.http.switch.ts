@@ -191,14 +191,12 @@ export function httpSwitch(action, state, productTemplateAdapter, initialState) 
             let product=Object.assign({},prod)
             if(action.payload.id==product.id)
             {
-            debugger;
             product[action.payload.image_field_name]=action.payload.image_data.image
             }
             return product
           })
 
         })
-        debugger;
         // feature[action.payload.type] = Object.assign({}, { loading: false, data: action.payload.data })
         return { ...state, feature }
 

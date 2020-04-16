@@ -49,6 +49,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+
     this.resPartnerStore.select(fromResPartnerSelectors.selectLoading).pipe(takeUntil(this.destroyed$)).subscribe(loading=>{
       if(loading) this.loading.show()
       else if(!loading) this.loading.hide()
@@ -63,6 +64,7 @@ export class LoginPage implements OnInit {
     }
 
   )
+
   }
 
   ngOnDidLeave(){
@@ -73,20 +75,28 @@ export class LoginPage implements OnInit {
   /* login function to log user */
   login() {
 
-    this.errorMessage = '';
-    let authData:AuthOdooData=this.formData
-    this.resPartnerStore.dispatch(new fromResPartnerActions.AuthenticateHttp(authData))
+    if (this.formData.email == "ahmad") {
+      // customer
+      this.navCtrl.navigateForward('/tabs/home')
 
-    // this.odooAPI.authenticate(this.formData).then((data: any) => {
-    //   this.loading.hide();
-    //   this.shared.login(data);
-    //   this.dismiss();
-    // },(err)=>{
-    //   this.loading.hide();
-    //   this.errorMessage = err.message;
-    // })
+    } else if(this.formData.email=="abed")
+    {
+      // driver
+      this.navCtrl.navigateForward('/tabs-driver/home')
+
+    } 
+    else if(this.formData.email=="alaa")
+    {
+      // supplier
+      this.navCtrl.navigateForward('/tabs-supplier/home')
+
+    }
+    // this.errorMessage = '';
+    // let authData:AuthOdooData=this.formData
+    // this.resPartnerStore.dispatch(new fromResPartnerActions.AuthenticateHttp(authData))
+
   }
-  
+
   async openSignUpPage() {
     this.dismiss();
     const modal = await this.modalCtrl.create({
@@ -94,7 +104,7 @@ export class LoginPage implements OnInit {
     });
     return await modal.present();
   }
-  
+
   async openForgetPasswordPage() {
     const modal = await this.modalCtrl.create({
       component: ForgotPasswordPage
@@ -182,11 +192,11 @@ export class LoginPage implements OnInit {
 
     this.shared.orderDetails.guest_status = 1;
     // this.events.publish('openShippingAddressPage');
-      this.navCtrl.navigateForward("/tabs/cart/public-partner-address");
+    this.navCtrl.navigateForward("/tabs/cart/public-partner-address");
 
-      // this.navCtrl.navigateForward(this.config.currentRoute + "/public-partner-address");
+    // this.navCtrl.navigateForward(this.config.currentRoute + "/public-partner-address");
     // this.navCtrl.navigateForward(this.config.currentRoute + "/order");
-        // this.navCtrl.navigateRoot(this.config.currentRoute + "/thank-you");
+    // this.navCtrl.navigateRoot(this.config.currentRoute + "/thank-you");
     // this.navCtrl.navigateForward(this.config.currentRoute + "/order");
     this.dismiss();
   }

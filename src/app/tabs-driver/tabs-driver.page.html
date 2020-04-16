@@ -22,15 +22,14 @@
         <b>{{'CATEGORIES'|translate}}</b>
       </ion-label>
     </ion-tab-button> -->
-    <ion-tab-button tab="cart">
-    <!-- <ion-tab-button (click)="openCart()"> -->
+    <!-- <ion-tab-button tab="cart">
       <img *ngIf="showImg()" src="assets/left-menu-icon/bag.png">
       <ion-icon *ngIf="!showImg()" name="basket"></ion-icon>
       <ion-badge mode="ios" color="secondary" [class.bag-fix]="showImg()">{{totalCart}}</ion-badge>
       <ion-label>
         <b>{{'MY_CART'|translate}}</b>
       </ion-label>
-    </ion-tab-button>
+    </ion-tab-button> -->
     <ion-tab-button tab="settings">
       <img *ngIf="showImg()" src="assets/left-menu-icon/user.png">
       <ion-icon *ngIf="!showImg()" name="person"></ion-icon>

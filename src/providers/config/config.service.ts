@@ -19,7 +19,7 @@ if (localStorage.langId == undefined) {
   // TODO get data from settings
   localStorage.langId = '1';//default language id
   localStorage.languageCode = "ar"; //default language code
-  localStorage.direction = "rtl"; //default language direction of app
+  localStorage.direction = "ltr"; //default language direction of app
   localStorage.currency = "₪";  //default currecny html code to show in app.
   // Please visit this link to get your html code  https://html-css-js.com/html/character-codes/currency/
   localStorage.currencyCode = "ILS";  //default currency code

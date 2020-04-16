@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button fill="clear" (click)="dismiss()">
@@ -7,10 +7,11 @@
     </ion-buttons>
     <ion-title class="ion-no-padding">{{'LOGIN'|translate}}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content class="ion-padding">
-  <ion-img src="assets/icons_stripe.svg"></ion-img>
+  <!-- <ion-img src="assets/icons_stripe.svg"></ion-img> -->
+  <ion-img src="assets/icon.png"></ion-img>
 
   <form #loginForm="ngForm" class="form" (ngSubmit)="login()">
     <ion-item>
@@ -42,15 +43,15 @@
     {{ "FORGET_PASSWORD" | translate }}</ion-button>
 
   <ion-button expand="full" *ngIf="config.fbButton==1" (click)="facebookLogin()">{{ 'LOGIN_WITH_FACEBOOK' | translate }}
-    <ion-icon name="logo-facebook"></ion-icon>
+    <ion-icon name="logo-facebook" slot="end"></ion-icon>
   </ion-button>
-  <ion-button color="danger" expand="full" *ngIf="config.googleButton==1" (click)="googleLogin()">
+  <!-- <ion-button color="danger" expand="full" *ngIf="config.googleButton==1" (click)="googleLogin()">
     {{ 'LOGIN_WITH' | translate }}
     <ion-icon name="logo-google"></ion-icon>
-  </ion-button>
+  </ion-button> -->
   <ion-button expand="block" fill="outline" (click)="openSignUpPage()">{{ 'REGISTER' | translate }}</ion-button>
   <!-- <ion-button expand="block" *ngIf="!hideGuestLogin" [disabled]="shared.cartProducts.length==0" (click)="guestLogin()"> -->
-  <ion-button expand="block" *ngIf="!hideGuestLogin" (click)="guestLogin()">
-    {{'CONTINUE_AS_GUEST'|translate}}</ion-button>
+  <!-- <ion-button expand="block" *ngIf="!hideGuestLogin" (click)="guestLogin()">
+    {{'CONTINUE_AS_GUEST'|translate}}</ion-button> -->
   <!-- *ngIf="config.guestCheckOut && hideGuestLogin" -->
 </ion-content>

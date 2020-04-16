@@ -189,55 +189,18 @@ export class AppComponent {
   }
   initializeApp() {
     this.plt.ready().then(() => {
-      this.translate.use('ar');
-      // TODO check below to add ads 
-      // this.runAdmob();
-      //malak: for product
-      // setTimeout(()=>{
-      //   let req_data : PublicOdooRequest
-      //   req_data = {
-      //     model : 'product.product',
-      //     domain: [],
-      //     fields : ['name','website_url','product_tmpl_id'],
-      //     limit : null,
-      //     offset : null
-      //   }
-      //   this.odooAPI.loadPublicRecords(req_data).subscribe(data => {
-      //       console.log(data)
-      //   })
-      // },1000)
-      //malak: mobile config
-      // setTimeout(()=>{
-      //   let req_data : PublicOdooRequest
-      //   req_data = {
-      //     model : 'grefoot.mobile_config',
-      //     domain: [],
-      //     fields : ['facebook_app_id','state'],
-      //     limit : 1,
-      //     offset : null
-      //   }
-      //   this.odooAPI.loadPublicRecords(req_data).subscribe(data => {
-      //       console.log(data)
-      //   })
-      // },1000)
+      this.translate.use('en');
   
       this.odooAPI.initServerSettings(
         this.config.yourSiteUrl,
         'username:password'
       );
 
-      this.config.siteSetting().then((value) => {
+      // this.config.siteSetting().then((value) => {
         this.loadHomePage()
         this.getLeftItems();
 
-        //subscribe for push notifiation
-        this.storage.get('pushNotification').then((val) => {
-          if (val == undefined) {
-            this.shared.subscribePush();
-            this.storage.set('pushNotification', "loaded");
-          }
-        });
-      });
+        
       this.statusBar.styleLightContent();
 
     });
@@ -246,19 +209,7 @@ export class AppComponent {
 
   // loading home page =========================================================================
   loadHomePage() {
-    this.storage.get('firsttimeApp').then((val) => {
-      let value = val;
-      if (this.config.showIntroPage == 0) value = 'firstTime';
-      
-      if (value == 'firstTime') {
         this.openHomePage();
-        this.config.checkingNewSettingsFromServer();
-      }
-      else {
-        this.navCtrl.navigateRoot("intro");
-      }
-      this.storage.set('firsttimeApp', 'firstTime');
-    });
   }
   doubleTapToExit() {
     // this.plt.registerBackButtonAction(() => {
@@ -331,16 +282,7 @@ export class AppComponent {
   }
 
   openHomePage() {
-    if (this.config.homePage == 1) { this.navCtrl.navigateForward("/tabs/home"); }
-    if (this.config.homePage == 2) { this.navCtrl.navigateForward("/tabs/home2"); }
-    if (this.config.homePage == 3) { this.navCtrl.navigateForward("/tabs/home3"); }
-    if (this.config.homePage == 4) { this.navCtrl.navigateForward("/tabs/home4"); }
-    if (this.config.homePage == 5) { this.navCtrl.navigateForward("/tabs/home5"); }
-    if (this.config.homePage == 6) this.navCtrl.navigateForward("/tabs/home6");
-    if (this.config.homePage == 7) this.navCtrl.navigateForward("/tabs/home7");
-    if (this.config.homePage == 8) this.navCtrl.navigateForward("/tabs/home8");
-    if (this.config.homePage == 9) this.navCtrl.navigateForward("/tabs/home9");
-    if (this.config.homePage == 10) this.navCtrl.navigateForward("/tabs/home10");
+     this.navCtrl.navigateForward("/login"); 
   }
   openCategoryPage() {
     this.navCtrl.navigateForward("categories/0/0")

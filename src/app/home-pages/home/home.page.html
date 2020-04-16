@@ -1,9 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar style="background-color:white">
    
-    <ion-title>
-      <ion-img src="assets/logo_header.png" alt="logo"></ion-img>
-    </ion-title>
+      <ion-img src="assets/icon.png" style="width:100px;height:50px" alt="logo" slot="end"></ion-img>
     
   </ion-toolbar>
 </ion-header>
@@ -11,7 +9,7 @@
 <ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" class="home-page-1 ion-padding-bottom">
 
   <!-- <app-banner></app-banner> -->
-  <product-main-slider-list></product-main-slider-list>
+  <!-- <product-main-slider-list></product-main-slider-list> -->
   <!-- Flash sale items products -->
 
   <!-- <div class="module" *ngIf="shared.flashSaleProducts.length!=0">
@@ -28,15 +26,15 @@
       </ion-slide>
     </ion-slides>
   </div> -->
-  <ion-segment [(ngModel)]="segments">
+  <!-- <ion-segment [(ngModel)]="segments">
     <ion-segment-button value="top_sold" (click)="changeTab('top_sold')" >{{ 'TOP_SOLD' | translate }}</ion-segment-button>
     <ion-segment-button value="new" (click)="changeTab('new')">{{ 'NEW' | translate }} </ion-segment-button>
     <ion-segment-button value="most_liked" (click)="changeTab('most_liked')"> {{ 'MOST_LIKED' | translate }}</ion-segment-button>
-  </ion-segment>
-  <div [ngSwitch]="segments">
+  </ion-segment> -->
+  <!-- <div [ngSwitch]="segments"> -->
 
     <!-- first swipe slider -->
-    <ion-slides *ngSwitchCase="'top_sold'" [options]="sliderConfig">
+    <!-- <ion-slides *ngSwitchCase="'top_sold'" [options]="sliderConfig">
       <ion-slide *ngFor="let p of topSoldProducts$ | async ">
         <app-product [data]="p" [type]="'normal'"></app-product>
       </ion-slide>
@@ -45,10 +43,10 @@
           <ion-icon name="arrow-redo-circle-outline"></ion-icon>
         </ion-button>
       </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
 
     <!-- 2nd swipe slider -->
-    <ion-slides *ngSwitchCase="'new'" [options]="sliderConfig">
+    <!-- <ion-slides *ngSwitchCase="'new'" [options]="sliderConfig">
       <ion-slide *ngFor="let p of (newProducts$ | async)">
         <app-product [data]="p" [type]="'normal'"></app-product>
       </ion-slide>
@@ -56,12 +54,12 @@
         <ion-button fill="clear" (click)="openProducts('new')"> {{'Shop More'| translate}}
           <ion-icon name="arrow-redo-circle-outline"></ion-icon>
         </ion-button>
-      </ion-slide>
+      </ion-slide> -->
 
-    </ion-slides>
+    <!-- </ion-slides> -->
 
     <!-- 3rd swipe slider -->
-    <ion-slides *ngSwitchCase="'most_liked'" [options]="sliderConfig">
+    <!-- <ion-slides *ngSwitchCase="'most_liked'" [options]="sliderConfig">
       <ion-slide *ngFor="let p of (mostLikedProducts$ | async)">
         <app-product [data]="p" [type]="'normal'"></app-product>
       </ion-slide>
@@ -70,9 +68,9 @@
           <ion-icon name="arrow-redo-circle-outline"></ion-icon>
         </ion-button>
       </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
 
-  </div>
+  <!-- </div> -->
 
   <!-- recently view Heading -->
   <ion-row *ngIf="shared.recentViewedProducts.length!=0" class="top-icon-header">

@@ -11,11 +11,16 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
+  {
+    path: 'tabs-driver',
+    loadChildren: () => import('./tabs-driver/tabs-driver.module').then(m => m.TabsDriverPageModule)
+  },
 
   // { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' },
   // { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
   // { path: 'contact-us', loadChildren: './contact-us/contact-us.module#ContactUsPageModule' },
    { path: 'intro', loadChildren: () => import('./intro/intro.module').then(m => m.IntroPageModule) },
+   { path: 'login', loadChildren: () => import('./modals/login/login.module').then(m => m.LoginPageModule) },
   // { path: 'my-account', loadChildren: './my-account/my-account.module#MyAccountPageModule' },
   // { path: 'my-orders', loadChildren: './my-orders/my-orders.module#MyOrdersPageModule' },
   // { path: 'news', loadChildren: './news/news.module#NewsPageModule' },

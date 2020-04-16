@@ -67,7 +67,7 @@ export class ProductsPage implements OnInit {
     private translate:TranslateService
 
   ) {
-    this.translate.use('ar')
+    this.translate.use('en')
     if (shared.dir == "rtl") this.side = "left";
     if (this.activatedRoute.snapshot.paramMap.get('id') != undefined) 
     {
