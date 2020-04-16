@@ -36,7 +36,7 @@ export class SlidingTabsComponent implements OnInit {
   page = 0;
   limit :number= 10 
   offset:number=0
-  domain: any=[];
+  domain: any=[['type','=','product']];
   productHttpLoading$: Observable<boolean>;
   constructor(
     public shared: SharedDataService,
@@ -88,12 +88,12 @@ export class SlidingTabsComponent implements OnInit {
     if (c == '0') 
     {
     // this.selected = c
-    this.domain=[]
+    this.domain=[['type','=','product']]
     }
     else 
     {
       this.selected = c.id;
-      this.domain=[['public_categ_ids.id','in',[c.id]]]
+      this.domain=[['type','=','product'],['public_categ_ids.id','in',[c.id]]]
     }
 
     this.getProducts(null);

@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
 
 export class LoginPage implements OnInit {
 
-  formData = { db: 'market', email: '', password: '' };
+  formData = { db: 'baladi', email: '', password: '' };
   errorMessage = '';
   hideGuestLogin: true;
   destroyed$=new Subject<void>();
@@ -88,7 +88,7 @@ export class LoginPage implements OnInit {
     else if(this.formData.email=="alaa")
     {
       // supplier
-      this.navCtrl.navigateForward('/tabs-supplier/home')
+      this.navCtrl.navigateForward('/tabs-supply/home')
 
     }
     // this.errorMessage = '';

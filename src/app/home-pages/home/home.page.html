@@ -73,20 +73,20 @@
   <!-- </div> -->
 
   <!-- recently view Heading -->
-  <ion-row *ngIf="shared.recentViewedProducts.length!=0" class="top-icon-header">
+  <!-- <ion-row *ngIf="shared.recentViewedProducts.length!=0" class="top-icon-header">
     <ion-button fill="clear">
       <ion-icon slot="start" name="list-outline"></ion-icon>
       {{'Recently Viewed'|translate}}
     </ion-button>
-  </ion-row>
+  </ion-row> -->
 
 
   <!-- recently viewed swipe slider -->
-  <ion-slides #recentSlider [options]="sliderConfig">
+  <!-- <ion-slides #recentSlider [options]="sliderConfig">
     <ion-slide *ngFor="let p of shared.recentViewedProducts">
       <app-product [data]="p" [type]="'recent'"></app-product>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 
   <!-- For Vendor List -->
   <!--<app-vendor-list></app-vendor-list>-->

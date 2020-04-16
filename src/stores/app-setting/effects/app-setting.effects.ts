@@ -110,7 +110,7 @@ export class SettingEffects {
         authenticateHttpAction.credential
     ),
     switchMap((credential: ICredential) => {
-       let authData:AuthOdooData={db:'market',email:credential.username,password:credential.password}
+       let authData:AuthOdooData={db:'baladi',email:credential.username,password:credential.password}
       return from(
 
         this.odooAPI.authenticate(authData)

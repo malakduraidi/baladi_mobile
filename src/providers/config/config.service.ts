@@ -31,7 +31,7 @@ if (localStorage.langId == undefined) {
 
 export class ConfigService {
 
-  public yourSiteUrl: string = 'http://localhost';
+  public yourSiteUrl: string = 'https://baladi.grefoot.com';
   public consumerKey: string = "your-consumer-key";
   public consumerSecret: string = "your-consumer-secret";
 

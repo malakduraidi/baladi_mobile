@@ -15,6 +15,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs-driver/tabs-driver.module').then(m => m.TabsDriverPageModule)
   },
+{
+    path: '',
+    loadChildren: () => import('./tabs-supply/tabs-supply.module').then(m => m.TabsSupplyPageModule)
+  },
 
   // { path: 'about-us', loadChildren: './about-us/about-us.module#AboutUsPageModule' },
   // { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },

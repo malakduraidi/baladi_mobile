@@ -63,7 +63,7 @@ export class ProductComponent implements OnInit {
     // image prop does not exist
     if(this.p && this.p.name && this.p.image==undefined)
     {
-    this.productTemplateStore.dispatch(new fromProductTemplateActions.LoadFeatureImageHttp({ id: this.p.id, image_field_name: 'image' }))
+    this.productTemplateStore.dispatch(new fromProductTemplateActions.LoadImageHttp({ id: this.p.id, image_field_name: 'image' }))
     }
 
     // image prop does not exist and there is an image

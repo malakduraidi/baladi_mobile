@@ -19,8 +19,8 @@
       <ion-img id="newimage" src="assets/badge_new.png" *ngIf="checkProductNew()"></ion-img>
       <!-- <img id="image" src="{{config.imgUrl+p.products_image}}" (click)="showProductDetail()"> -->
       <!-- <img id="image" src="{{convertedImage}}" (click)="showProductDetail()"> -->
-      <img *ngIf="convertedImage" [src]="convertedImage" alt="" (click)="showProductDetail()" />
-      <img *ngIf="!convertedImage" src="assets/no_product_image.jpg" alt="" (click)="showProductDetail()" />
+      <img class="image-product-size" *ngIf="convertedImage" [src]="convertedImage" alt="" (click)="showProductDetail()" />
+      <img  class="image-product-size" *ngIf="!convertedImage" src="assets/no_product_image.jpg" alt="" (click)="showProductDetail()" />
       <!-- <p (click)="showProductDetail()">{{p.products_name}}</p> -->
       <p (click)="showProductDetail()">{{p.name}}</p>
       <ion-row class="ion-no-padding">
