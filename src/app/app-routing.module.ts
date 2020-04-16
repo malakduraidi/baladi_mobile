@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'tabs-driver',
+    path: '',
     loadChildren: () => import('./tabs-driver/tabs-driver.module').then(m => m.TabsDriverPageModule)
   },
 
