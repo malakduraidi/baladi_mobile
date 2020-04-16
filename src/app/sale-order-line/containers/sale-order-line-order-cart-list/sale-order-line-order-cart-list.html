@@ -1,0 +1,66 @@
+
+<ion-card class="order-product">
+    <ion-card-header>
+      <h4>{{'Products'|translate}}</h4>
+    </ion-card-header>
+    <ion-card-content *ngFor="let cart of cart$ |async ">
+      <sale-order-line-order-cart-item 
+      [cart]="cart"
+      (removeFromCart)="quantityMinus($event)"
+      (addToCart)="quantityPlus($event)"
+      (viewProduct)="viewProduct($event)"
+      (removeAllTheCart)="removeAllTheCart($event)"
+      ></sale-order-line-order-cart-item>
+
+ </ion-card-content>
+</ion-card>
+  <ion-card>
+    <ion-card-header>
+      {{'SUB_TOTAL'|translate}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="6">
+          {{'PRODUCTS_PRICE'|translate}}
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          {{total| curency}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          {{'TAX'|translate}}
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          {{totalTax| curency}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          {{'SHIPPING_COST'|translate}}
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          <!-- {{orderDetail.shipping_cost| curency}} -->
+          {{'20'| curency}}
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row *ngIf="couponApplied == 1"> -->
+      <ion-row >
+        <ion-col size="6">
+          {{'DISCOUNT'|translate}}
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          {{'0'| curency}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <strong>{{'TOTAL'|translate}}</strong>
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          <strong>{{total| curency}}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+

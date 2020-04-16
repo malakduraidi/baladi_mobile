@@ -1,0 +1,108 @@
+import { Action } from "@ngrx/store";
+import { IResCountry} from "../../models/res-country";
+
+// HTTP CRUD
+
+export enum ResCountryHTTPActionsType {
+
+  // HTTP CRUD
+  ADD_HTTP = "[ResCountry] ADD_HTTP",
+  UPDATE_HTTP = "[ResCountry] UPDATE_HTTP",
+  ADD_UPDATE_HTTP_SUCCESS = "[ResCountry] ADD_UPDATE_HTTP_SUCCESS",
+  ADD_UPDATE_HTTP_FAIL = "[ResCountry] ADD_UPDATE_HTTP_FAIL",
+
+  DELETE_HTTP = "[ResCountry] DELETE_HTTP",
+  DELETE_HTTP_SUCCESS = "[ResCountry] DELETE_HTTP_SUCCESS",
+  DELETE_HTTP_FAIL = "[ResCountry] DELETE_HTTP_FAIL",
+
+  LOAD_HTTP = "[ResCountry] LOAD_HTTP",
+  LOAD_HTTP_SUCCESS = "[ResCountry] LOAD_HTTP_SUCCESS",
+  LOAD_HTTP_FAIL = "[ResCountry] LOAD_HTTP_FAIL",
+
+  REFRESH_HTTP = "[ResCountry] REFRESH_HTTP",
+  REFRESH_HTTP_SUCCESS = "[ResCountry] REFRESH_HTTP_SUCCESS",
+  REFRESH_HTTP_FAIL = "[ResCountry] REFRESH_HTTP_FAIL"
+
+}
+
+export class AddHTTP implements Action {
+  readonly type =ResCountryHTTPActionsType.ADD_HTTP;
+  constructor(public payload: {data:IResCountry}) { }
+}
+
+export class UpdateHTTP implements Action {
+  readonly type =ResCountryHTTPActionsType.UPDATE_HTTP;
+  constructor(public payload: { id: number, data: any }) { }
+}
+
+export class AddUpdateHTTPSuccess implements Action {
+  readonly type =ResCountryHTTPActionsType.ADD_UPDATE_HTTP_SUCCESS;
+  constructor(public payload: {data:IResCountry}) { }
+}
+
+export class AddUpdateHTTPFail implements Action {
+  readonly type =ResCountryHTTPActionsType.ADD_UPDATE_HTTP_FAIL;
+  constructor(public payload: any) { }
+}
+
+export class DeleteHTTP implements Action {
+  readonly type =ResCountryHTTPActionsType.DELETE_HTTP;
+  constructor(public payload: { id: number }) { }
+}
+
+export class DeleteHTTPSuccess implements Action {
+  readonly type =ResCountryHTTPActionsType.DELETE_HTTP_SUCCESS;
+  constructor(public payload: number) { }
+}
+
+export class DeleteHTTPFail implements Action {
+  readonly type =ResCountryHTTPActionsType.DELETE_HTTP_FAIL;
+  constructor(public payload: any) { }
+}
+
+export class LoadHTTP implements Action {
+  readonly type =ResCountryHTTPActionsType.LOAD_HTTP;
+  constructor(public payload: { domain: any, limit: number, offset: number, fields?: any }) { }
+}
+
+export class LoadHTTPSuccess implements Action {
+  readonly type =ResCountryHTTPActionsType.LOAD_HTTP_SUCCESS;
+  constructor(public payload: IResCountry) { }
+}
+
+export class LoadHTTPFail implements Action {
+  readonly type =ResCountryHTTPActionsType.LOAD_HTTP_FAIL;
+  constructor(public payload: any) { }
+}
+
+export class RefreshHTTP implements Action {
+  readonly type =ResCountryHTTPActionsType.REFRESH_HTTP;
+  constructor(public payload: { domain: any, limit: number, offset: number, fields?: any }) { }
+}
+
+export class RefreshHTTPSuccess implements Action {
+  readonly type =ResCountryHTTPActionsType.REFRESH_HTTP_SUCCESS;
+  constructor(public payload: IResCountry) { }
+}
+
+export class RefreshHTTPFail implements Action {
+  readonly type =ResCountryHTTPActionsType.REFRESH_HTTP_FAIL;
+  constructor(public payload: any) { }
+}
+
+export type ResCountryHTTPActions =
+  | AddHTTP
+  | UpdateHTTP
+  | AddUpdateHTTPSuccess
+  | AddUpdateHTTPFail
+  | DeleteHTTP
+  | DeleteHTTPSuccess
+  | DeleteHTTPFail
+  | LoadHTTP
+  | LoadHTTPSuccess
+  | LoadHTTPFail
+  | RefreshHTTP
+  | RefreshHTTPSuccess
+  | RefreshHTTPFail;
+
+

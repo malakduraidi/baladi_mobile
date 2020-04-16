@@ -1,0 +1,94 @@
+
+<!-- <ion-card *ngIf="viewType == 'kanban'" id="kanban">
+
+  <ion-avatar>
+    <img  *ngIf="productCategory.image_medium" [src]="convertedImage" />
+    <img *ngIf="!productCategory.image_medium" src="assets/no_product_image.jpg" alt="" />
+  </ion-avatar>
+
+  <ion-text>
+    <h6>{{productCategory.name}}</h6>
+  </ion-text>
+
+</ion-card>
+
+<ion-item *ngIf="viewType=='list'" id="list">
+<ion-avatar slot="start" class="animate-item delay-500ms">
+    <img  *ngIf="productCategory.image_medium" [src]="convertedImage" />
+    <img *ngIf="!productCategory.image_medium" src="assets/no_product_image.jpg" alt="" />
+
+</ion-avatar>
+<ion-label class="ion-padding">
+  <ion-text>
+    <h2>{{productCategory.name}}</h2>
+    <p *ngIf="productCategory.product_ids && productCategory.product_ids.length > 0">
+      {{productCategory.product_ids.length}} {{'Products'| translate }}
+    </p>
+  </ion-text>
+</ion-label>
+
+</ion-item>
+
+<ion-item lines="full" *ngIf="viewType=='list_large_image'"  class="animate-item" id="list_large_image">
+    <ion-thumbnail slot="start" class="animate-item delay-500ms">
+      <img  *ngIf="productCategory.image_medium" [src]="convertedImage" />
+    <img *ngIf="!productCategory.image_medium" src="assets/no_product_image.jpg" alt="" />
+
+    </ion-thumbnail>
+    <ion-label class="ion-padding">
+      <ion-text>
+        <h2>{{productCategory.name|translate}}</h2>
+        <p *ngIf="productCategory.product_ids && productCategory.product_ids.length > 0">
+          {{productCategory.product_ids.length}} {{'Products'| translate }}
+        </p>
+      </ion-text>
+    </ion-label>
+</ion-item>
+
+
+   <ion-card id="kanban_large_image" routerDirection="forward" *ngIf="viewType == 'kanban_large_image'">
+
+        <ion-thumbnail>
+          <img  *ngIf="productCategory.image_medium" [src]="convertedImage" />
+          <img *ngIf="!productCategory.image_medium" src="assets/no_product_image.jpg" alt="" />
+
+        </ion-thumbnail>
+        <ion-text>
+          <h6>{{productCategory.name|translate}}</h6>
+          <p>{{productCategory.total_products}} {{'Products'| translate }}</p>
+        </ion-text>
+      </ion-card>
+
+      
+<ion-card id="list_full_image" *ngIf="viewType=='list_full_image'"
+    class="animate-item">
+    <img  *ngIf="productCategory.image_medium" [src]="convertedImage" />
+    <img *ngIf="!productCategory.image_medium" src="assets/no_product_image.jpg" alt="" />
+
+    <ion-text>
+      <h2>{{productCategory.name }}</h2>
+      <p>{{productCategory.total_products}} {{'Products'| translate }}</p>
+    </ion-text>
+ </ion-card> -->
+
+
+ <div *ngIf="productCategory==null && viewType == 'kanban' " style="padding-left: 10px;">
+  <ion-skeleton-text animated style="width: 100%; height: 110px;"></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 80%; height: 15px;"></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 60%; height: 15px;">
+  </ion-skeleton-text>
+
+</div>  
+ <ion-card tappable (click)="select(productCategory)" *ngIf="productCategory !==null && viewType == 'kanban'" id="kanban" class="ion-padding">
+  
+  <ion-avatar>
+    <img  *ngIf="productCategory.image_medium" [src]="convertedImage" />
+    <img *ngIf="productCategory.image_medium ==false " src="assets/no_product_image.jpg" alt="" />
+    <ion-skeleton-text animated  *ngIf="productCategory.image_medium==undefined" style="width: 80%; height: 50px;border-radius:50px">
+    </ion-skeleton-text>
+  </ion-avatar>
+  <ion-text>
+    <h6>{{productCategory.name}}</h6>
+  </ion-text>
+</ion-card>
+

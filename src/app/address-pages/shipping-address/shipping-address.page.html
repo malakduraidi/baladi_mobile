@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title> {{'SHIPPING_ADDRESS'| translate }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form #shippingForm="ngForm">
+        <ion-list>
+    <ion-item>
+      <ion-label position="floating">{{'FULL_NAME'|translate}}</ion-label>
+      <ion-input type="text" name="shipping_firstname" [(ngModel)]="shared.orderDetails.delivery_firstname" required>
+      </ion-input>
+    </ion-item>
+    
+    
+    
+    <ion-item>
+      <ion-input type="text" placeholder="{{'ADDRESS'|translate}}" name="street" [(ngModel)]="shippingAddressData.street"
+        required></ion-input>
+
+    </ion-item>
+    
+    <res-country-select [(country_id)]="shippingAddressData.country_id" [placeholder]="'SELECT_YOUR_COUNTRY'|translate"
+      (resCountryOutput)="selectedCountry($event)"></res-country-select>
+    
+    <res-country-state-select [(state_id)]="shippingAddressData.state_id" [placeholder]="'SELECT_YOUR_STATE'|translate"
+      (resCountryStateOutput)="selectedCountryState($event)"></res-country-state-select>
+
+   <ion-item>
+        <ion-label position="floating">{{'MOBILE_NUMBER'|translate}}</ion-label>
+        <ion-input type="text" name="Phone" [(ngModel)]="shared.orderDetails.delivery_phone" required>
+        </ion-input>
+      </ion-item>
+    
+    </ion-list>
+    
+    </form>
+    
+    </ion-content>
+    
+    <ion-footer>
+      <ion-button expand="full" color="secondary" (click)="submit()" [disabled]="!shippingForm.form.valid">{{'NEXT'|translate}}
+      </ion-button>
+    </ion-footer>

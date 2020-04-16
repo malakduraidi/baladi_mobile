@@ -1,0 +1,44 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{'Search'|translate}}
+    </ion-title>
+  </ion-toolbar> -->
+
+  <form (ngSubmit)="getSearchData()">
+    <ion-searchbar [(ngModel)]="search" name="search" placeholder="{{'Search'|translate}}" [formControl]="searchControl" >
+    </ion-searchbar>
+      <!-- (ionInput)="onChangeKeyword($event)" -->
+  </form>
+</ion-header>
+
+<ion-content>
+
+  <div class="list" *ngFor="let p of products$ | async">
+    <app-product [data]="p" [type]="'list'"></app-product>
+  </div>
+
+
+  <product-category-list-dynamic [searchable]="false" [viewType]="'list'" (onItemClick)="openProducts($event)"></product-category-list-dynamic>
+      <!-- 
+  <ion-list>
+    <ion-item *ngFor="let c of categories$ | async" (click)="openProducts(c.id,c.name)">
+
+      <product-category-item [productCategory]="c" [type]="'kanban'"> </product-category-item>
+        <ion-avatar slot="start" class="animate-item delay-500ms">
+        <img src="{{config.imgUrl+c.image}}" />
+      </ion-avatar>
+      <ion-label class="ion-padding">
+        <ion-text>
+          <h2>{{c.name}}</h2>
+          <p>{{c.total_products}} {{'Products'| translate }}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+     -->
+
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="resPartner.id">
+      <ion-button ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="back-button" color="dark" (click)="closeModal()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+  <res-partner-form [resPartner]="resPartner"
+    (resPartnerChange)="onResPartnerChange($event)"
+    (onSubmitChange)="onSubmitChange($event)">
+  </res-partner-form>
+</ion-content>

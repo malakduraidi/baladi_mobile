@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding">{{'LOGIN'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-img src="assets/icons_stripe.svg"></ion-img>
+
+  <form #loginForm="ngForm" class="form" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">{{'EMAIL'|translate}}</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="formData.email" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">{{'PASSWORD'|translate}}</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="formData.password" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="errorMessage!=''">
+      <ion-label>
+        {{errorMessage| translate}}
+      </ion-label>
+    </ion-item>
+
+
+    <ion-button [disabled]="!loginForm.form.valid" color="secondary" expand="full" type="submit">
+      {{ 'LOGIN' | translate }}
+    </ion-button>
+
+  </form>
+
+  <ion-button expand="full" fill="clear" color="dark" (click)="openForgetPasswordPage()">
+    {{ "FORGET_PASSWORD" | translate }}</ion-button>
+
+  <ion-button expand="full" *ngIf="config.fbButton==1" (click)="facebookLogin()">{{ 'LOGIN_WITH_FACEBOOK' | translate }}
+    <ion-icon name="logo-facebook"></ion-icon>
+  </ion-button>
+  <ion-button color="danger" expand="full" *ngIf="config.googleButton==1" (click)="googleLogin()">
+    {{ 'LOGIN_WITH' | translate }}
+    <ion-icon name="logo-google"></ion-icon>
+  </ion-button>
+  <ion-button expand="block" fill="outline" (click)="openSignUpPage()">{{ 'REGISTER' | translate }}</ion-button>
+  <!-- <ion-button expand="block" *ngIf="!hideGuestLogin" [disabled]="shared.cartProducts.length==0" (click)="guestLogin()"> -->
+  <ion-button expand="block" *ngIf="!hideGuestLogin" (click)="guestLogin()">
+    {{'CONTINUE_AS_GUEST'|translate}}</ion-button>
+  <!-- *ngIf="config.guestCheckOut && hideGuestLogin" -->
+</ion-content>

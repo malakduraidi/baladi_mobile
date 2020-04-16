@@ -1,0 +1,94 @@
+<ion-card tappable (click)="select(productTemplate)" *ngIf="viewType=='list'">
+
+  <ion-card-header>{{productTemplate.id}}
+  </ion-card-header>
+ 
+  <ion-item>
+    {{productTemplate.id}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.name}}
+  </ion-item>
+
+  <ion-item>
+    {{productTemplate.default_code}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.barcode}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.categ_id}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.list_price}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.standard_price}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.image_medium}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.image}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.qty_available}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.virtual_available}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.outgoing_qty}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.product_variant_ids}}
+  </ion-item>
+ 
+  <ion-item>
+    {{productTemplate.description}}
+  </ion-item>
+
+</ion-card>
+
+
+  <ion-card  tappable (click)="select(productTemplate)" id="list_full_image" *ngIf="viewType=='list_full_image'"
+    class="animate-item">
+    <img  *ngIf="productTemplate.image_medium" [src]="convertedImage" />
+    <img *ngIf="!productTemplate.image_medium" src="assets/no_product_image.jpg" alt="" />
+
+    <ion-text>
+      <h2>{{productTemplate.name }}</h2>
+    </ion-text>
+ </ion-card>
+
+
+ <div *ngIf="productTemplate==null && viewType == 'kanban' " style="padding-left: 10px;">
+  <ion-skeleton-text animated style="width: 100%; height: 110px;"></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 80%; height: 15px;"></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 60%; height: 15px;">
+  </ion-skeleton-text>
+
+</div>  
+ <ion-card tappable (click)="select(productTemplate)" *ngIf="productTemplate !==null && viewType == 'kanban'" id="kanban" class="ion-padding">
+  
+  <ion-avatar>
+    <img  *ngIf="productTemplate.image_medium" [src]="convertedImage" />
+    <img *ngIf="productTemplate.image_medium ==false " src="assets/no_product_image.jpg" alt="" />
+    <ion-skeleton-text animated  *ngIf="productTemplate.image_medium==undefined" style="width: 80%; height: 50px;border-radius:50px">
+    </ion-skeleton-text>
+  </ion-avatar>
+  <ion-text>
+    <h6>{{productTemplate.name}}</h6>
+  </ion-text>
+</ion-card>

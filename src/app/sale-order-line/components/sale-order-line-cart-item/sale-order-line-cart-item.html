@@ -1,0 +1,50 @@
+<ion-card class="ion-padding" >
+    <ion-card-header class="ion-no-padding">
+      <ion-card-subtitle>
+        <h3> {{cart.product.name}}
+        </h3>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="3">
+            <img [src]="convertedImage"/>
+          </ion-col>
+          <ion-col class="col-price" size="5">
+            <p>{{'PRICE' |translate}}</p>
+            <p>{{'QUANTITY' |translate}}</p>
+            <p><b>{{'SUB_TOTAL' |translate}}</b></p>
+          </ion-col>
+          <ion-col class="col-price-ori" size="4">
+            <p class="para-del">{{cart.product.list_price| curency}}</p>
+            <div class="div-btn">
+              <ion-button size="small" fill="outline" (click)="quantityMinus(cart)">
+                <p>-</p>
+              </ion-button>
+              <span>{{cart.product_uom_qty}}</span>
+              <ion-button class="add-btn" size="small" fill="outline" (click)="quantityPlus(cart)">
+                <p>+</p>
+              </ion-button>
+            </div>
+            <br /><br />
+            <p class="para-price-ori">{{cart.price_total | curency}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let att of cart.product.attributes">
+          <ion-col size="6">{{att.products_options_values+'&nbsp;'+att.products_options}}&nbsp;:</ion-col>
+          <!-- <ion-col size="6">{{att.price_prefix +'&nbsp;'+ att.options_values_price+'&nbsp;'+config.currency}}</ion-col> -->
+        </ion-row>
+        <ion-row>
+          <ion-col size="2.5">
+            <ion-button color="secondary" (click)="getSingleProductDetail(cart.product)">{{'VIEW' | translate}}
+            </ion-button>
+          </ion-col>
+          <ion-col size="8.5">
+            <ion-button fill="clear" color="danger" (click)="removeCart(cart);">{{'REMOVE' | translate}} </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+

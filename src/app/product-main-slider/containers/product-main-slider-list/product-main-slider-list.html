@@ -1,0 +1,74 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button class="back-button" color="dark" (click)="closeModal()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+
+        <ion-col col-12>
+          <ion-searchbar>
+          </ion-searchbar>
+
+        </ion-col>
+
+
+      </ion-row>
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-content padding> -->
+
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'PULL_TO_REFRESH'|translate}}"
+      refreshingSpinner="lines" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher> -->
+
+
+  <!-- <span *ngFor="let productMainSlider of productMainSliders$ | async ">
+    <div *ngIf='productMainSlider'>
+      <product-main-slider-item [productMainSlider]='productMainSlider'
+        (objEmitter)="itemSelected(productMainSlider)">
+      </product-main-slider-item>
+
+    </div>
+  </span> -->
+  <!-- <div *ngIf="shared.banners.length==0">
+    <ion-skeleton-text animated style="height: 211px;">
+    </ion-skeleton-text>
+  </div> -->
+  <!-- <div *ngIf=" shared.banners.length!=0"> -->
+  
+    <!-- TODO banner click should be added in ion-slide (click)="bannerClick(b)" -->
+    <ion-slides pager="true" #ionSlides class="banner-slider">
+      <ion-slide *ngFor="let productMainSlider of productMainSliders$ | async"
+        class="ion-no-padding animate-item" 
+        >
+        <product-main-slider-item [productMainSlider]='productMainSlider'
+        (objEmitter)="itemSelected(productMainSlider)">
+      </product-main-slider-item>
+        <!-- <ion-img src="{{config.imgUrl+b.image}}"></ion-img> -->
+      </ion-slide>
+    </ion-slides>
+  <!-- </div> -->
+
+  <!-- <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="lines" loadingText="{{ 'LOADING' | translate }}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+
+<!-- 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="showRecordDetail()">
+      <ion-icon name="add" color="secondary"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+<!-- </ion-content> -->

@@ -1,0 +1,106 @@
+ion-content {
+  .grid-empty {
+    margin-top: 50%;
+    ion-row {
+      ion-col {
+        text-align: center;
+        ion-icon {
+          zoom: 3.9;
+          color: lightgrey;
+        }
+        ion-button {
+          --border-radius: 0px;
+        }
+        h4 {
+          font-size: 16px;
+          font-weight: bold;
+          margin-top: 2px;
+          margin-bottom: 6px;
+        }
+        h5 {
+          font-size: 14px;
+          color: gray;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+}
+
+.col-price {
+  p {
+    text-align: left;
+    margin-bottom: 8px;
+    &:first-child {
+      margin-bottom: 6px;
+    }
+    &:nth-child(3) {
+      margin-bottom: 0;
+    }
+  }
+}
+.col-price-ori {
+  padding-right: 0;
+}
+.add-btn {
+  float: right;
+}
+.para-del {
+  text-align: right;
+  del {
+    float: left;
+  }
+}
+.div-btn {
+  ion-button {
+    --color: var(--ion-color-primary);
+    --border-color: var(--ion-color-primary);
+    --border-radius: 0px;
+    width: 25%;
+    height: 25px;
+    &:first-child {
+      float: left;
+      p {
+        font-size: 35px;
+      }
+    }
+    &:nth-child(3) {
+      float: right;
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+  span {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 34px;
+  }
+}
+.para-price-ori {
+  width: 100%;
+  text-align: end;
+  margin-top: -9px;
+}
+ion-footer {
+  .toolbar {
+    padding-left: 10px;
+  }
+  ion-button {
+    height: 45px;
+    margin: 0;
+    margin-bottom: 0;
+  }
+ion-card{
+    padding:0px !important;
+
+
+    ion-card-content{
+            padding:0px !important
+    }
+
+}
+}
+

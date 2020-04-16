@@ -1,0 +1,136 @@
+<!--  Hold Order Detail -->
+<form [formGroup]="formGroup"  novalidate>
+  <ion-list>
+   
+   
+  
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       name
+      </ion-label>
+      <ion-input text-right type="text" formControlName="name"></ion-input> </ion-item>
+   
+   
+  
+   
+   
+    <ion-item>
+      <ion-label>
+       mobile
+      </ion-label>
+      <ion-input text-right type="text"
+        formControlName="mobile"></ion-input>
+    </ion-item>
+   
+   
+
+ 
+  
+   
+   
+   
+    <!-- <ion-item>
+      <ion-label> country_id </ion-label>
+      <ion-input text-right type="number" pattern="[0-9]*" formControlName="country_id"></ion-input>
+    </ion-item> -->
+   
+     <ion-item (click)="selectCountry()">
+      {{resCountry && resCountry.name}}
+      <ion-icon name="caret-down-outline" slot="end"></ion-icon>
+    </ion-item>
+    <div class="form-validation-err">
+      <ng-container *ngFor="let validation of validation_messages.country_id">
+        <div class="error-message" *ngIf="
+                        formGroup.get('country_id').hasError(validation.type) &&
+                        (formGroup.get('country_id').dirty ||
+                          formGroup.get('country_id').touched ||
+                          submitAttempt)
+                      ">
+          <ion-icon name="information-circle-outline"></ion-icon>
+          {{ validation.message | translate }}
+        </div>
+      </ng-container>
+    </div>
+    <!-- <ion-item>
+          <ion-label>
+           state_id
+          </ion-label>
+          <ion-input text-right type="number" pattern="[0-9]*" formControlName="state_id"></ion-input>
+        </ion-item> -->
+
+    <ion-item (click)="selectState()" [disabled]="!resCountry || !resCountry.name">
+      {{resCountryState && resCountryState.name}}
+      <ion-icon name="caret-down-outline" slot="end"></ion-icon>
+    </ion-item>
+    
+    
+    
+    <!--    
+       
+       
+        <ion-item>
+          <ion-label>
+           lat
+          </ion-label>
+         
+         
+    
+          <ion-input text-right type="text"
+            formControlName="lat"></ion-input>
+         
+         
+        </ion-item>
+       
+       
+       
+        <ion-item>
+          <ion-label>
+           long
+          </ion-label>
+         
+         
+    
+          <ion-input text-right type="text"
+            formControlName="long"></ion-input>
+         
+         
+        </ion-item> -->
+    
+    
+    
+    <!-- <ion-item>
+          <ion-label>
+           email
+          </ion-label>
+         
+         
+    
+          <ion-input text-right type="text"
+            formControlName="email"></ion-input>
+         
+         
+        </ion-item> -->
+    
+    
+    
+    <!-- <ion-item>
+          <ion-label>
+           gender
+          </ion-label>
+         
+         
+    
+          <ion-input text-right type="text"
+            formControlName="gender"></ion-input>
+         
+         
+        </ion-item> -->
+    
+    </ion-list>
+    </form>
+    <ion-footer>
+
+    </ion-footer>

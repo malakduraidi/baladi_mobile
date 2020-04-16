@@ -1,0 +1,159 @@
+<!--  Hold Order Detail -->
+<form [formGroup]="formGroup"  novalidate>
+  <ion-list>
+   
+   
+    <ion-item>
+      <ion-label>
+       id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       client_id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="client_id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       product_id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="product_id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       order_id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="order_id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       product_uom_qty
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="product_uom_qty"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       price_unit
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="price_unit"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       discount
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="discount"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       price_tax
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="price_tax"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       price_total
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="price_total"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       offer_id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="offer_id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+   
+  </ion-list>
+</form>
+<ion-button [disabled]="!formGroup.valid" block tappable (click)="submitForm()">Save</ion-button>

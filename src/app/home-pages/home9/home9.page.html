@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>
+      <ion-img src="assets/logo_header.png" alt="logo"></ion-img>
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-bottom">
+  <ion-row class="top-icon-header">
+    <ion-button fill="clear">
+      <ion-icon slot="start" name="apps"></ion-icon>
+      {{'CATEGORIES' | translate }}
+    </ion-button>
+    <ion-button id="second" fill="clear" (click)="openCategoryPage($event)">
+      <ion-icon slot="end" name="arrow-redo-circle-outline"></ion-icon>
+      {{ 'Shop More' | translate }}
+    </ion-button>
+  </ion-row>
+  <!-- categories component -->
+  <!-- <app-categories [type]="'grid'"></app-categories> -->
+  <product-category-list-dynamic [searchable]="false" [viewType]="'kanban'" (onItemClick)="openCategoryPage($event)" > </product-category-list-dynamic>
+
+
+
+  <ion-segment [(ngModel)]="segments">
+    <ion-segment-button value="top_sold" (click)="changeTab('top_sold')" >{{ 'Top Seller' | translate }}</ion-segment-button>
+    <ion-segment-button value="new" (click)="changeTab('new')">{{ 'New' | translate }} </ion-segment-button>
+    <ion-segment-button value="most_liked" (click)="changeTab('most_liked')"> {{ 'Most Liked' | translate }}</ion-segment-button>
+  </ion-segment>
+
+<div [ngSwitch]="segments">
+
+    <!-- first swipe slider -->
+    <ion-slides *ngSwitchCase="'top_sold'" [options]="sliderConfig">
+      <ion-slide *ngFor="let p of topSoldProducts$ | async ">
+        <app-product [data]="p" [type]="'normal'"></app-product>
+      </ion-slide>
+      <ion-slide>
+        <ion-button fill="clear" (click)="openProducts('top seller')"> {{'Shop More'| translate}}
+          <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-slide>
+    </ion-slides>
+
+    <!-- 2nd swipe slider -->
+    <ion-slides *ngSwitchCase="'new'" [options]="sliderConfig">
+      <ion-slide *ngFor="let p of (newProducts$ | async)">
+        <app-product [data]="p" [type]="'normal'"></app-product>
+      </ion-slide>
+      <ion-slide>
+        <ion-button fill="clear" (click)="openProducts('new')"> {{'Shop More'| translate}}
+          <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-slide>
+
+    </ion-slides>
+
+    <!-- 3rd swipe slider -->
+    <ion-slides *ngSwitchCase="'most_liked'" [options]="sliderConfig">
+      <ion-slide *ngFor="let p of (mostLikedProducts$ | async)">
+        <app-product [data]="p" [type]="'normal'"></app-product>
+      </ion-slide>
+      <ion-slide>
+        <ion-button fill="clear" (click)="openProducts('most liked')"> {{'Shop More'| translate}}
+          <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-slide>
+    </ion-slides>
+
+  </div>
+
+
+      <!-- For Vendor List -->
+      <!-- TODO check belowa vendor list ! -->
+  <!--<app-vendor-list></app-vendor-list>-->
+
+  <ion-row class="top-icon-header">
+    <ion-button fill="clear">
+      <ion-icon slot="start" name="albums-outline"></ion-icon>
+      {{'All Products' | translate }}
+    </ion-button>
+    <ion-button id="second" fill="clear" (click)="openProducts('top seller')">
+      <ion-icon slot="end" name="arrow-redo-circle-outline"></ion-icon>
+      {{ 'Shop More' | translate }}
+    </ion-button>
+  </ion-row>
+
+  <app-sliding-tabs [type]="'text'" [segments]="'0'"></app-sliding-tabs>
+  <!-- <ion-grid class="ion-no-padding">
+    <ion-row class="ion-no-padding">
+      <ion-col *ngFor="let p of products" size="6" class="ion-no-padding">
+        <app-product [data]="p" [type]="'normal'"></app-product>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <!-- infinite scroll -->
+  <ion-infinite-scroll #infinite (ionInfinite)="getProducts()">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" *ngIf="scrollTopButton">
+  <ion-fab-button color="secondary" (click)="scrollToTop()">
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

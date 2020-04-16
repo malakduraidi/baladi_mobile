@@ -1,0 +1,17 @@
+
+
+<div *ngIf="!resCountryState">
+  <ion-skeleton-text animated style="width:100%;height: 50px;">
+  </ion-skeleton-text>
+</div>
+<ion-card *ngIf="resCountryState" tappable (click)="select(resCountryState)">
+
+  <!-- <ion-card-header>{{resCountryState.id}}
+  </ion-card-header> -->
+  <ion-item>
+    {{resCountryState.name}}
+  </ion-item>
+ 
+ 
+
+</ion-card>

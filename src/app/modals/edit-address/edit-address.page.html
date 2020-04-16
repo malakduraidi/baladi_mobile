@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{'SHIPPING_ADDRESS'|translate}}</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form #loginForm="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list>
+
+          <ion-item>
+            <ion-input type="text" placeholder="{{'ADDRESS'|translate}}" name="street"
+              [(ngModel)]="shippingAddressData.street" required></ion-input>
+          </ion-item>
+
+          <res-country-select [(country_id)]="shippingAddressData.country_id" [placeholder]="'SELECT_YOUR_COUNTRY'|translate" (resCountryOutput)="selectedCountry($event)"></res-country-select>
+
+          <res-country-state-select [(state_id)]="shippingAddressData.state_id" [placeholder]="'SELECT_YOUR_STATE'|translate" (resCountryStateOutput)="selectedCountryState($event)"></res-country-state-select>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </form>
+  
+  <ion-button expand="full" color="secondary" *ngIf="type=='update'" (click)="updateShippingAddress()"
+    [disabled]="!loginForm.form.valid">{{'Update Address'|translate}}</ion-button>
+  <ion-button expand="full" color="secondary" *ngIf="type=='add'" (click)="addShippingAddress()"
+    [disabled]="!loginForm.form.valid || !shippingAddressData.country_id || !shippingAddressData.state_id">{{'Save Address'|translate}}</ion-button>
+</ion-content>

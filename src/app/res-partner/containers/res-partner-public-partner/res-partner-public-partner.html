@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+  
+  </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+  
+  
+    <res-partner-public-partner-form [resPartner]="resPartner" (resPartnerChange)="onResPartnerChange($event)"
+      [submitAttempt$]="submitAttempt$" [resCountry]="resCountry" [resCountryState]="resCountryState"
+      (resCountryChange)="selectCountry()" (resCountryStateChange)="selectCountryState($event)">
+    </res-partner-public-partner-form>
+  </ion-content>
+  <ion-footer>
+    <ion-button expand="full" (click)="submit()">{{'SUBMIT'|translate}}</ion-button>
+  </ion-footer>

@@ -1,0 +1,174 @@
+<!--  Hold Order Detail -->
+<form [formGroup]="formGroup"  novalidate>
+  <ion-list>
+   
+   
+    <ion-item>
+      <ion-label>
+       id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       client_id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="client_id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       name
+      </ion-label>
+     
+     
+
+      <ion-input text-right type="text"
+        formControlName="name"></ion-input>
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       amount_tax
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="amount_tax"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       amount_total
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="amount_total"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       amount_untaxed
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="amount_untaxed"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       partner_id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="partner_id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       invoice_ids
+      </ion-label>
+     
+     
+
+      <ion-input text-right type="text"
+        formControlName="invoice_ids"></ion-input>
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       state
+      </ion-label>
+     
+     
+
+      <ion-input text-right type="text"
+        formControlName="state"></ion-input>
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       date_order
+      </ion-label>
+     
+     
+     
+        <ion-datetime formControlName="date_order" displayFormat="DD/MM/YYYY H:mm" min="1920"
+          max="2200">
+        </ion-datetime>
+     
+    </ion-item>
+   
+   
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       note
+      </ion-label>
+     
+     
+
+      <ion-input text-right type="text"
+        formControlName="note"></ion-input>
+     
+     
+    </ion-item>
+   
+   
+  </ion-list>
+</form>
+<ion-button [disabled]="!formGroup.valid" block tappable (click)="submitForm()">Save</ion-button>

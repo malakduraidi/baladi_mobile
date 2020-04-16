@@ -1,0 +1,86 @@
+<!--  Hold Order Detail -->
+<form [formGroup]="formGroup"  novalidate>
+
+  <ion-list>
+   
+    <!-- <ion-item>
+      <ion-label>{{"ID" | translate}} : </ion-label>
+      <ion-input text-right type="number" pattern="[0-9]*" formControlName="id"></ion-input>
+    </ion-item> -->
+   
+    <ion-item>
+      <ion-label>{{"NAME" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="name"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>{{"DEFAULT_CODE" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="default_code"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>{{"BARCODE" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="barcode"></ion-input>
+    </ion-item>
+   
+    <ion-item (click)="onCategoryFocus()">
+      <ion-label>{{"CATEGORY_ID" | translate}}:  <span>{{categ_id && categ_id.name}}</span></ion-label>
+      <!--  pattern added for iOS compatibilty -->
+      <ion-icon name="caret-down-outline" slot="end"></ion-icon>      
+      <!-- <ion-input text-right (ionFocus)="onCategoryFocus()" formControlName="categ_id"></ion-input> -->
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{"LIST_PRICE" | translate}} : </ion-label>
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*" formControlName="list_price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>{{"STANDARD_PRICE" | translate}} : </ion-label>
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*" formControlName="standard_price"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>{{"IMAGE_MEDIUM" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="image_medium"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>{{"IMAGE" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="image"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>{{"QTY_AVAILABLE" | translate}} : </ion-label>
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*" formControlName="qty_available"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>{{"VIRTUAL_AVAILABLE" | translate}} : </ion-label>
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*" formControlName="virtual_available"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>{{"OUTGOING_QTY" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="outgoing_qty"></ion-input>
+    </ion-item>
+   
+    <!-- <ion-item>
+      <ion-label>{{"PRODUCT_VARIANT_IDS" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="product_variant_ids"></ion-input>
+    </ion-item> -->
+   
+    <ion-item>
+      <ion-label>{{"DESCRIPTION" | translate}} : </ion-label>
+      <ion-input text-right type="text" formControlName="description"></ion-input>
+    </ion-item>
+   
+  </ion-list>
+
+</form>
+
+<ion-button [disabled]="!formGroup.valid" expand="full" color="secondary" (click)="submitForm()">{{"SAVE" | translate}}</ion-button>

@@ -1,0 +1,89 @@
+<ion-header *ngIf="searchable">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button class="back-button" color="dark" (click)="closeModal()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col col-12>
+          <ion-searchbar> </ion-searchbar>
+        </ion-col>
+
+
+      </ion-row>
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content padding> -->
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'PULL_TO_REFRESH'|translate}}"
+      refreshingSpinner="lines" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher> -->
+
+  <ion-grid class="ion-no-padding" *ngIf="viewType=='kanban'">
+    <ion-row class="ion-no-padding">
+      <ion-col *ngFor="let productCategory of productCategorys$ | async" (click)="itemSelected(productCategory)" class="animate-item" size="6" class="ion-no-padding">
+        <product-category-item [productCategory]="productCategory" [viewType]="viewType"> </product-category-item>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+<ion-list *ngIf="viewType=='list'">
+  <!-- <ion-item *ngFor="let productCategory of productCategorys$ | async" (click)="itemSelected(c)"> -->
+
+    <product-category-item *ngFor="let productCategory of productCategorys$ | async" [productCategory]="productCategory" (click)="itemSelected(productCategory)" [viewType]="'list'"> </product-category-item>
+  
+  <!-- </ion-item>  -->
+</ion-list>
+
+
+<ion-list *ngIf="viewType=='list_large_image'">
+    <product-category-item *ngFor="let productCategory of productCategorys$ | async" [productCategory]="productCategory" (click)="itemSelected(productCategory)" [viewType]="'list_large_image'"> </product-category-item>
+
+</ion-list>
+
+
+<!--  Style #5 -->
+<ion-grid class="ion-no-padding" *ngIf="viewType=='kanban_large_image'">
+  
+<ion-row class="ion-no-padding" 
+ style="padding-left: 1px; padding-right: 1px ; 
+ background: white; box-shadow: 0 0 0 2px lightgrey;" >
+<ion-col *ngFor="let productCategory of productCategorys$ | async" id="kanban_large_image" class="animate-item" size="6" class="ion-no-padding" >
+  <product-category-item 
+  [productCategory]="productCategory" (click)="itemSelected(productCategory)" 
+  [viewType]="'kanban_large_image'"> 
+</product-category-item>
+</ion-col>
+ </ion-row>
+</ion-grid>
+<!-- END Style #5 -->
+ 
+<!-- Style #6 -->
+<ion-list *ngIf="viewType=='list_full_image'">
+  <product-category-item *ngFor="let productCategory of productCategorys$ | async" [productCategory]="productCategory" (click)="itemSelected(productCategory)" [viewType]="'list_full_image'"> </product-category-item>
+</ion-list>
+<!-- End Style #6 -->
+<!-- 
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="lines" loadingText="{{ 'LOADING' | translate }}"> </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="showRecordDetail()">
+      <ion-icon name="add" color="secondary"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+<!-- </ion-content> -->

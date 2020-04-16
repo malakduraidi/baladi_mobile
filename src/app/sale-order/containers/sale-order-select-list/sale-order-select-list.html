@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button class="back-button" color="dark" (click)="closeModal()">
+        <ion-icon src="../assets/icon/arrow.svg"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-row>
+        <ion-col col-12>
+          <ion-searchbar>
+          </ion-searchbar>
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="{{'PULL_TO_REFRESH'|translate}}"
+      refreshingSpinner="lines" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
+  <span *ngFor="let saleOrder of saleOrders$ | async ">
+    <div *ngIf='saleOrder'>
+      <sale-order-select-item [saleOrder]='saleOrder' 
+        (objEmitter)="itemSelected(saleOrder)">
+      </sale-order-select-item>
+
+    </div>
+  </span>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="lines" loadingText="{{ 'LOADING' | translate }}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button >
+      <ion-icon name="add" color="secondary"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

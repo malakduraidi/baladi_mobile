@@ -1,0 +1,82 @@
+<!--  Hold Order Detail -->
+<form [formGroup]="formGroup"  novalidate>
+  <ion-list>
+   
+   
+    <ion-item>
+      <ion-label>
+       id
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="id"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       name
+      </ion-label>
+     
+     
+
+      <ion-input text-right type="text"
+        formControlName="name"></ion-input>
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       ks_main_slider_img
+      </ion-label>
+     
+     
+
+      <ion-input text-right type="text"
+        formControlName="ks_main_slider_img"></ion-input>
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       ks_main_slider_link
+      </ion-label>
+     
+     
+
+      <ion-input text-right type="text"
+        formControlName="ks_main_slider_link"></ion-input>
+     
+     
+    </ion-item>
+   
+   
+   
+    <ion-item>
+      <ion-label>
+       sequence
+      </ion-label>
+     
+      <!--  pattern added for iOS compatibilty -->
+      <ion-input text-right type="number" pattern="[0-9]*"
+        formControlName="sequence"></ion-input>
+     
+     
+     
+    </ion-item>
+   
+   
+  </ion-list>
+</form>
+<ion-button [disabled]="!formGroup.valid" block tappable (click)="submitForm()">Save</ion-button>

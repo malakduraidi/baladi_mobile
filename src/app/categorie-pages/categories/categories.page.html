@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="parent.name!='Categories'">
+      <ion-back-button icon="arrow-back-circle-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-menu-button slot="start" *ngIf="parent.name=='Categories'">
+      <ion-icon name="menu"></ion-icon>
+    </ion-menu-button>
+    <ion-title>
+      {{parent.name| translate }}
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <product-category-list-dynamic [searchable]="false" [viewType]="viewType" (onItemClick)="openSubCategories($event)" >
+  </product-category-list-dynamic>
+
+  <!-- TODO maybe 70px not suit for all devices need to check -->
+  <ion-button  icon-end clear color="secondary" (click)="viewAll()">
+    {{'VIEW_ALL' | translate }}
+    <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+  </ion-button>
+
+</ion-content>
