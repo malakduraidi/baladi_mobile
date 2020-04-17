@@ -5,7 +5,6 @@ import { LoadingService } from 'src/providers/loading/loading.service';
 
 import { SharedDataService } from 'src/providers/shared-data/shared-data.service';
 import { AppVersion } from '@ionic-native/app-version/ngx';
-import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Storage } from '@ionic/storage';
@@ -43,7 +42,6 @@ export class SettingsPage implements OnInit {
     private socialSharing: SocialSharing,
     public plt: Platform,
     private appVersion: AppVersion,
-    private oneSignal: OneSignal,
     public loggedUser: ResPartner,
     public localNotifications: LocalNotifications,
     private resPartnerStore:Store<ResPartnerState>,

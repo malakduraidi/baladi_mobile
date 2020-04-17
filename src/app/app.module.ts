@@ -8,7 +8,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { SpinnerDialog } from '@ionic-native/spinner-dialog/ngx';
-import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { ThemeableBrowser } from '@ionic-native/themeable-browser/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -142,7 +141,7 @@ import { ResCountryStateModule } from './res-country-state/res-country-state.mod
     SplashScreen,
     AppVersion,
     SpinnerDialog,
-    OneSignal,
+    // OneSignal,
     ThemeableBrowser,
     Geolocation,
     NativeGeocoder,

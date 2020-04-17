@@ -6,7 +6,6 @@ import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { LoadingService } from '../loading/loading.service';
 import { Platform, ToastController, AlertController } from '@ionic/angular';
-import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { FCM } from '@ionic-native/fcm/ngx';
@@ -125,7 +124,6 @@ export class SharedDataService {
     public fcm: FCM,
     public alertCtrl: AlertController,
     public appVersion: AppVersion,
-    public oneSignal: OneSignal,
     private toastCtrl: ToastController,
     public splashScreen: SplashScreen,
     private saleOrderLineStore:Store<SaleOrderLineState>,
@@ -675,13 +673,13 @@ export class SharedDataService {
 
         }
       }
-      else if (this.config.notificationType == "onesignal") {
-        this.oneSignal.startInit(this.config.onesignalAppId, this.config.onesignalSenderId);
-        this.oneSignal.endInit();
-        this.oneSignal.getIds().then((data) => {
-          this.registerDevice(data.userId);
-        })
-      }
+      // else if (this.config.notificationType == "onesignal") {
+      //   this.oneSignal.startInit(this.config.onesignalAppId, this.config.onesignalSenderId);
+      //   this.oneSignal.endInit();
+      //   this.oneSignal.getIds().then((data) => {
+      //     this.registerDevice(data.userId);
+      //   })
+      // }
     }
   }
   //============================================================================================
