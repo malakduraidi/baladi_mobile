@@ -62,7 +62,7 @@ export class OrderItemComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-
+    this.workflows = this.workflows.filter(x=>x!=this.order.state)
   }
   ionViewDidEnter() {
 
