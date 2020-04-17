@@ -24,6 +24,7 @@
       <ion-label position="floating">{{'PASSWORD'|translate}}</ion-label>
       <ion-input type="password" name="password" [(ngModel)]="formData.password" required>
       </ion-input>
+      <ion-icon style="padding-top: 17px;" slot="end" name="eye-off-outline"></ion-icon>
     </ion-item>
 
     <ion-item lines="none" *ngIf="errorMessage!=''">
@@ -32,24 +33,40 @@
       </ion-label>
     </ion-item>
 
+    <div class="forgot" (click)="openForgetPasswordPage()">
+      <ion-label >
+        Forgot your password ?
+      </ion-label>
+    </div>
 
-    <ion-button [disabled]="!loginForm.form.valid" color="secondary" expand="full" type="submit">
+    <!-- <ion-button expand="full" fill="clear" color="dark" (click)="openForgetPasswordPage()">
+      {{ "FORGET_PASSWORD" | translate }}</ion-button> -->
+
+
+    <ion-button class="submit" [disabled]="!loginForm.form.valid" expand="block" type="submit">
       {{ 'LOGIN' | translate }}
     </ion-button>
 
   </form>
 
-  <ion-button expand="full" fill="clear" color="dark" (click)="openForgetPasswordPage()">
-    {{ "FORGET_PASSWORD" | translate }}</ion-button>
+  <div style="text-align:center; color: rgb(197, 197, 197);padding-top: 15px;">
+    ____________   <span style="color:rgb(86 ,86 ,86)">or</span>   _____________
+    </div>
 
-  <ion-button expand="full" *ngIf="config.fbButton==1" (click)="facebookLogin()">{{ 'LOGIN_WITH_FACEBOOK' | translate }}
-    <ion-icon name="logo-facebook" slot="end"></ion-icon>
+  <ion-button class="facebook" expand="block" *ngIf="config.fbButton==1" (click)="facebookLogin()">{{ 'LOGIN_WITH_FACEBOOK' | translate }}
+    <!-- <ion-icon name="logo-facebook" slot="end"></ion-icon> -->
   </ion-button>
+
+  <div class="register">
+    <span style="font-size: 11px" >
+      Don’t Have An Account? <span style="color:rgb(162 ,177 ,37)" (click)="openSignUpPage()">Sign Up</span>
+    </span>
+  </div>
   <!-- <ion-button color="danger" expand="full" *ngIf="config.googleButton==1" (click)="googleLogin()">
     {{ 'LOGIN_WITH' | translate }}
     <ion-icon name="logo-google"></ion-icon>
   </ion-button> -->
-  <ion-button expand="block" fill="outline" (click)="openSignUpPage()">{{ 'REGISTER' | translate }}</ion-button>
+  <!-- <ion-button expand="block" fill="outline" (click)="openSignUpPage()">{{ 'REGISTER' | translate }}</ion-button> -->
   <!-- <ion-button expand="block" *ngIf="!hideGuestLogin" [disabled]="shared.cartProducts.length==0" (click)="guestLogin()"> -->
   <!-- <ion-button expand="block" *ngIf="!hideGuestLogin" (click)="guestLogin()">
     {{'CONTINUE_AS_GUEST'|translate}}</ion-button> -->
