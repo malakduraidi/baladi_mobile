@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-no-padding">{{'ACCOUNT_TYPE'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h1 style="text-align:center; color: rgb(0, 0, 0);font-size:20px;padding-top: 15px;">
+    Which one are you?
+  </h1>
+
+  <ion-button class="selected_square">
+    <figure>
+      <img src='assets/customer.png' alt='missing' />
+      <figcaption>Customer</figcaption>
+    </figure>
+    <!-- <div style="display: block;">
+      <img src="assets/customer.png" alt="" />
+    </div>
+    <div>
+        <h6>Customer</h6>
+    </div> -->
+
+    <!-- <img style="height: 100px;" src="assets/icon.png"></img> -->
+  </ion-button>
+  <ion-button  class="square">
+    <figure>
+      <img src='assets/supplier.png' alt='missing' />
+      <figcaption>Supplier</figcaption>
+    </figure>
+  </ion-button >
+  <ion-button class="square">
+    <figure>
+      <img src='assets/delivery.png' alt='missing' />
+      <figcaption>Delivery</figcaption>
+    </figure>
+  </ion-button>
+  <ion-button class="square">
+    <figure>
+      <img src='assets/agent.png' alt='missing' />
+      <figcaption>Agent</figcaption>
+    </figure>
+  </ion-button>
+
+  <ion-button class="next" expand="block" (click)="openSignUpPage()">{{ 'NEXT' | translate }}
+    <!-- <ion-icon name="logo-facebook" slot="end"></ion-icon> -->
+  </ion-button>
+
+</ion-content>

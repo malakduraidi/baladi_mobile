@@ -16,14 +16,15 @@ import { RegisterOdooData } from 'src/providers/odoo/models/ModelRemoteOdoo';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { LoginPage } from '../login/login.page';
+import { SignUpPage } from '../sign-up/sign-up.page';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.page.html',
-  styleUrls: ['./sign-up.page.scss'],
+  selector: 'app-account-type',
+  templateUrl: './account-type.page.html',
+  styleUrls: ['./account-type.page.scss'],
 })
 
-export class SignUpPage implements OnInit {
+export class AccountTypePage implements OnInit {
 
   formData = {
     customers_firstname: '',
@@ -81,6 +82,13 @@ export class SignUpPage implements OnInit {
     //     })
   }
 
+  async openSignUpPage() {
+    this.dismiss();
+    const modal = await this.modalCtrl.create({
+      component: SignUpPage
+    });
+    return await modal.present();
+  }
   async  openPrivacyPolicyPage() {
     let modal = await this.modalCtrl.create({
       component: PrivacyPolicyPage

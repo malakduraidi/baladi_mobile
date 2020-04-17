@@ -2,7 +2,6 @@ import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { ConfigService } from 'src/providers/config/config.service';
 import { ModalController, NavController } from '@ionic/angular';
 import { SharedDataService } from 'src/providers/shared-data/shared-data.service';
-import { SignUpPage } from '../sign-up/sign-up.page';
 import { ForgotPasswordPage } from '../forgot-password/forgot-password.page';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { LoadingService } from 'src/providers/loading/loading.service';
@@ -16,6 +15,7 @@ import { AuthOdooData } from 'src/providers/odoo/models/ModelRemoteOdoo';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { AccountTypePage } from '../account-type/account-type.page';
 
 @Component({
   selector: 'app-login',
@@ -97,10 +97,10 @@ export class LoginPage implements OnInit {
 
   }
 
-  async openSignUpPage() {
+  async openAccountTypePage() {
     this.dismiss();
     const modal = await this.modalCtrl.create({
-      component: SignUpPage
+      component: AccountTypePage
     });
     return await modal.present();
   }

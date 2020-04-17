@@ -34,9 +34,13 @@
           <h4 class="card-price-normal-through">{{p.products_price|curency}}</h4>
           <h4 class="card-price-normal">{{p.flash_price|curency}}</h4>
         </ion-col>
+        <!-- <ion-col size="2" class="ion-text-center ion-no-padding">
+          <ion-img style="height:20px"src="assets/shopping-cart.png"></ion-img>
+        </ion-col> -->
         <ion-col size="2" class="ion-text-center ion-no-padding">
           <ion-icon (click)="clickWishList()" *ngIf="p.isLiked=='0'" name="heart-empty"></ion-icon>
-          <ion-icon (click)="clickWishList()" *ngIf="p.isLiked!='0'" name="heart"></ion-icon>
+          <ion-img style="height:20px" src="assets/fav.png" (click)="clickWishList()" *ngIf="p.isLiked!='0'" ></ion-img>
+          <!-- <ion-icon (click)="clickWishList()" *ngIf="p.isLiked!='0'" name="heart"></ion-icon> -->
         </ion-col>
       </ion-row>
       <ion-row class="ion-no-padding">
@@ -45,11 +49,11 @@
         </ion-button>
       </ion-row>
       <ion-row class="ion-no-padding" *ngIf="type=='normal'">
-        <ion-button color="secondary" *ngIf="config.cartButton==1 && p.qty_available>0 && p.type=='product'"
+        <ion-button *ngIf="config.cartButton==1 && p.qty_available>0 && p.type=='product'"
           (click)="addToCart(p)">{{'ADD_TO_CART'|translate}}
         </ion-button>
 
-        <ion-button color="secondary" *ngIf="config.cartButton==1 && p.type=='consu'"
+        <ion-button *ngIf="config.cartButton==1 && p.type=='consu'"
           (click)="addToCart(p)">{{'ADD_TO_CART'|translate}}
         </ion-button>
 

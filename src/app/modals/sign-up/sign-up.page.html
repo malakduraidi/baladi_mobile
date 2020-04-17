@@ -2,18 +2,16 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button fill="clear" (click)="dismiss()">
-        <ion-icon name="close"></ion-icon>
+        <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="ion-no-padding">{{'CREATE_ACCOUNT'|translate}}</ion-title>
+    <ion-title class="ion-no-padding">{{'REGISTER'|translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-avatar>
-    <ion-img src="assets/avatar.png"></ion-img>
-  </ion-avatar>
+    <ion-img style="height: 100px;" src="assets/icon.png"></ion-img>
 
   <form #loginForm="ngForm" class="form" (ngSubmit)="registerUser()">
 
@@ -37,11 +35,11 @@
       <ion-input type="password" name="c_d" [(ngModel)]="formData.password" required>
       </ion-input>
     </ion-item>
-    <ion-item>
+    <!-- <ion-item>
       <ion-label position="floating">{{'CONFIRM_PASSWORD'|translate}}</ion-label>
       <ion-input type="password" name="confirm_d" [(ngModel)]="formData.confirm_password" required>
       </ion-input>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item *ngIf="errorMessage!=''" lines="none">
       <ion-label>
@@ -49,15 +47,29 @@
       </ion-label>
     </ion-item>
 
-    <p>{{"CREATING_AN_ACCOUNT_MEANS_YOU’RE_OKAY_WITH_OUR"|translate}}
+    <!-- <p>{{"CREATING_AN_ACCOUNT_MEANS_YOU’RE_OKAY_WITH_OUR"|translate}}
 
       <a (click)="openTermServicesPage()">{{'TERM_AND_SERVICES'|translate}}</a>,
       <a (click)="openPrivacyPolicyPage()">{{'PRIVACY_POLICY'|translate}}</a> {{'AND'|translate}}
       <a (click)="openRefundPolicyPage()">{{'REFUND_POLICY'|translate}}</a>
-    </p>
+    </p> -->
 
-    <ion-button disabled="true" expand="full" color="secondary" type="submit" [disabled]="!loginForm.form.valid">
+    <ion-button disabled="true" class="register" expand="block" type="submit" [disabled]="!loginForm.form.valid">
       {{'REGISTER'|translate}}
     </ion-button>
   </form>
+
+  <div style="text-align:center; color: rgb(197, 197, 197);padding-top: 15px;">
+    ____________   <span style="color:rgb(86 ,86 ,86)">or</span>   _____________
+    </div>
+
+  <ion-button class="facebook" expand="block" *ngIf="config.fbButton==1" (click)="facebookLogin()">{{ 'SIGN_UP_WITH_FACEBOOK' | translate }}
+    <!-- <ion-icon name="logo-facebook" slot="end"></ion-icon> -->
+  </ion-button>
+
+  <div class="login">
+    <span style="font-size: 11px" >
+      Don’t Have An Account? <span style="color:rgb(162 ,177 ,37)" (click)="openLogInPage()">Sign In</span>
+    </span>
+  </div>
 </ion-content>

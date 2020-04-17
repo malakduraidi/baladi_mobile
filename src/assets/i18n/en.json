@@ -658,6 +658,8 @@
   "FORGET_PASSWORD":"Forget Password?",
   "CONTINUE_AS_GUEST":"Continue as guest",
   "LOGIN_WITH_FACEBOOK":"Login with facebook",
+  "SIGN_UP_WITH_FACEBOOK":"Sign up with facebook",
+  "ACCOUNT_TYPE":"Account Type",
   "FULL_NAME":"Full Name",
   "EXPLORE":"Explore",
   "YOUR_CART_IS_EMPTY":"Cart is empty",
