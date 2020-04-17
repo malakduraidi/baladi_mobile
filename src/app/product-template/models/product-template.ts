@@ -74,7 +74,7 @@ export interface IProductTemplate{
 }
 
 
-export const ProductTemplateOdooFields =[ 'id', 'name', 'default_code', 'barcode', 'categ_id', 'list_price', 'standard_price', 'write_date', 'qty_available', 'virtual_available', 'outgoing_qty', 'product_variant_ids', 'description','type']
+export const ProductTemplateOdooFields =[ 'id', 'name', 'default_code', 'barcode', 'categ_id', 'list_price', 'standard_price', 'write_date', 'qty_available', 'virtual_available', 'outgoing_qty', 'product_variant_ids', 'image_medium','description','type']
 
 @Injectable()
 export class ProductTemplate implements IProductTemplate{

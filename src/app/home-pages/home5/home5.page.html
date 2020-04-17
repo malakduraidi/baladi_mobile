@@ -10,11 +10,22 @@
 
 <ion-content class="ion-padding-bottom">
   <ion-list>
-    <ion-card *ngFor="let c of shared.categories" (click)="openSubCategories(c)" class="animate-item">
-      <ion-img *ngIf="c.image" src="{{config.imgUrl+c.image}}"></ion-img>
+    <ion-card *ngFor="let productTemplate of productTemplates$ | async " class="animate-item">
       <ion-text>
-        <h2>{{c.name }}</h2>
-        <p>{{c.total_products}} {{'Products'| translate }}</p>
+        <h2>{{productTemplate.name }}</h2>
+      </ion-text> 
+      <img *ngIf="productTemplate.image_medium" [src]="'data:image/jpeg;base64,'+productTemplate.image_medium" />      
+      <img *ngIf="!productTemplate.image_medium" src="assets/no_product_image.jpg" alt="" />
+      <ion-text>
+        <div class="div-btn">
+          <ion-button size="small" fill="outline" (click)="qunatMinus(productTemplate)">
+            <p>-</p>
+          </ion-button>
+          <span>{{customers_basket_quantity[productTemplate.id]}}</span>
+          <ion-button class="add-btn" size="small" fill="outline" (click)="qunatPlus(productTemplate)">
+            <p>+</p>
+          </ion-button>
+        </div>
       </ion-text>
     </ion-card>
   </ion-list>

@@ -23,29 +23,43 @@ form {
     ion-label {
       color: gray;
     }
-    &:nth-child(3) {
-      height: 33px;
-      ion-label {
-        color: red;
-      }
-    }
+    // &:nth-child(3) {
+    //   height: 33px;
+    //   ion-label {
+    //     color: red;
+    //   }
+    // }
   }
-  ion-button {
+  .submit {
     text-transform: uppercase;
-    color: #fafafa;
+    color: rgb(255 ,255 ,255) !important;
+    --background: rgb(162 ,177 ,37) !important;
+    --border-radius: 24px !important;
+    height: 40px;
+    margin-top: 25px;
   }
+  
+  .forgot{
+    text-align: right;
+    color: rgb(197, 197, 197) !important;
+    font-size: 10px;
+    margin-top: 14px;
+  }
+}
+
+.register{
+  text-align: center;
+  padding-top: 60px;
+  font-weight: 11px !important;
 }
 
 // For Login, Facebook, Register Buttons
 ion-button {
-  &:nth-child(3) {
-    text-transform: capitalize;
-    margin-top: 15px;
-  }
   &:nth-child(4) {
-    margin-top: 15px;
-    --background: #3b5998;
     color: white;
+    margin-top: 25px;
+  --background: #3b5998;
+  --border-radius: 24px !important;
   }
   &:nth-child(5) {
     color: black;
