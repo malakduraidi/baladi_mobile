@@ -1,0 +1,249 @@
+.waiting-color,.draft-color{
+  div{
+
+  background-color:gray;
+  }
+  span{
+    color:gray;
+    background-color:white;
+
+  }
+
+}
+.received-by-collector-color{
+  div{
+  background-color:purple;
+  }
+  span{
+    background-color:white;
+    color:purple
+
+  }
+}
+
+.received-in-company-color{
+  div{
+  background-color:rosybrown;
+  }
+  span{
+    background-color:white;
+    color:rosybrown
+
+  }
+}
+
+.in-progress-color{
+  div{
+  background-color:green;
+  }
+  span{
+    background-color:white;
+    color:green
+
+  }
+
+}
+
+.delivered-color{
+  div{
+
+  background-color:orange;
+  }
+  span{
+    background-color:white;
+    color:orange;
+
+  }
+
+}
+
+.money-received-color{
+  div{
+
+  background-color:brown;
+  }
+  span{
+    color:brown;
+    background-color:white;
+
+  }
+}
+.paid-color{
+  div{
+  background-color:pink
+
+  }
+  span{
+    background-color:white;
+    color:pink;
+  }
+}
+.rejected-color{
+  div{
+  background-color:red;
+  }
+  span{
+    background-color:white;
+    color:red;
+  }
+
+}
+.stuck-color{
+  div{
+
+  background-color:red;
+  }
+  span{
+    background-color:white;
+    color:red
+  }
+}
+
+
+.done-color{
+  div{
+
+  background-color:greenyellow
+  }
+  span{
+  background-color:white;
+  color:greenyellow
+  }
+
+}
+.view-section-rtl{
+    // background-color: var(--ion-color-secondary);
+    width:10% !important;
+    height:30% !important;
+    position: absolute;;
+    left:1px;
+    // pointer-events: none;
+    z-index: 999999 !important;
+    ion-icon{
+      margin:3px !important;
+      position:relative;
+      top:50%;
+      font-size:2.0em;
+    }
+}
+.view-section-ltr{
+    // background-color: var(--ion-color-secondary);
+    width:10% !important;
+    height:30% !important;
+    position: absolute;;
+    right:1px;
+    // pointer-events: none;
+    z-index: 999999 !important;
+    ion-icon{
+      margin:3px !important;
+      position:relative;
+      top:50%;
+      font-size:2.0em;
+    }
+}
+
+.print-section-rtl{
+    // background-color: var(--ion-color-secondary);
+    width:10% !important;
+    height:30% !important;
+    position: absolute;;
+    left:1px;
+    // pointer-events: none;
+    z-index: 999999 !important;
+    ion-icon{
+      margin:3px !important;
+      position:relative;
+      top:150%;
+      font-size:2.0em;
+    }
+}
+.print-section-ltr{
+    // background-color: var(--ion-color-secondary);
+    width:10% !important;
+    height:30% !important;
+    position: absolute;;
+    right:1px;
+    // pointer-events: none;
+    z-index: 999999 !important;
+    ion-icon{
+      margin:3px !important;
+      position:relative;
+      top:150%;
+      font-size:2.0em;
+    }
+}
+
+.no-driver{
+  // background-color:red;
+  // height:20px !important;
+  color:red;
+
+}
+.more-button {
+    // --background: white !important;
+    --padding-bottom: 0px !important;
+    --padding-top: 0px !important;
+    --padding-right: 0px !important;
+    --padding-left: 0px !important;
+    --box-shadow: none;
+  
+    padding: 0px !important;
+  }
+  
+  .ion-spinner-poll {
+    display: block;
+    margin: auto;
+  }
+  .welcome-card img {
+    max-height: 35vh;
+    overflow: hidden;
+  }
+  
+  .order-status-line {
+    position: absolute;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    width: 3px !important;
+    height:100% !important;
+  }
+  .order-status-delivered {
+    position: relative;
+    border-top-right-radius: 5px !important;
+    border-top-left-radius: 5px !important;
+    width: 100%;
+    height: 3px !important;
+    background-color: green;
+  }
+  
+  ion-segment-button {
+    --border-width: 1px !important;
+    --border-style: solid;
+    --border-color: var(--ion-color-primary);
+    --background-checked: var(--ion-color-primary);
+    --color-checked: var(--ion-color-secondary);
+    --indicator-color-checked: var(--ion-color-primary);
+  }
+  ion-segment {
+    --border-radius: 5px;
+  }
+  
+  ion-card-header {
+    padding: 0px !important;
+  }
+  ion-col {
+    padding: 0px !important;
+  }
+  .listcount {
+    font-size: 10px;
+  }
+  .workflow {
+    display: inline-block;
+    margin-top: 10px !important;
+    margin: auot 0;
+    color: var(--ion-color-secondary);
+  }
+  
+.card-content-md {
+  padding: 0;
+
+}

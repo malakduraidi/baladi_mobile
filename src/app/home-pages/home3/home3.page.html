@@ -2,97 +2,42 @@
   <ion-toolbar>
    
     <ion-title>
-      <ion-img src="assets/logo_header.png" alt="logo"></ion-img>
+      <ion-img src="assets/baladi.png" alt="logo"></ion-img>
     </ion-title>
     
   </ion-toolbar>
+
+  <ion-segment (ionChange)="segmentChanged($event)" scrollable>
+    <ion-segment-button value="waiting" checked>
+      <ion-label translate>WAITING</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="in_receiving">
+      <ion-label translate>INـRECEIVING</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="pickedup">
+      <ion-label translate>PICKEDUP</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="in_delivery">
+      <ion-label translate>IN_DELIVERY</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="completed">
+      <ion-label translate>COMPLETED</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
 </ion-header>
 <ion-content class="ion-padding-bottom">
+  
+  
+  <ion-list>
+    <span *ngFor="let order of orders ">
 
-  <app-banner></app-banner>
+      <app-order-item [order]="order"></app-order-item>
 
-  <!-- Flash sale items products -->
+    </span>
 
-  <div class="module" *ngIf="shared.flashSaleProducts.length!=0">
-    <ion-row class="top-icon-header">
-      <ion-button fill="clear">
-        <ion-icon slot="start" name="md-clock"></ion-icon>
-        {{'Flash Sale'|translate}}
-      </ion-button>
-    </ion-row>
-    <ion-slides [options]="sliderConfig">
-      <ion-slide *ngFor="let p of shared.flashSaleProducts">
-        <app-product [data]="p" [type]="'flash'"></app-product>
-      </ion-slide>
-    </ion-slides>
-  </div>
-  <ion-row class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="albums-outline"></ion-icon>
-      {{'Newest Products'|translate}}
-    </ion-button>
-  </ion-row>
-
-  <ion-slides [options]="sliderConfig">
-    <ion-slide *ngFor="let p of shared.tab1">
-      <app-product [data]="p" [type]="'normal'"></app-product>
-    </ion-slide>
-    <ion-slide>
-      <ion-button fill="clear" (click)="openProducts('latest')"> {{'Shop More'| translate}}
-        <ion-icon name="arrow-redo-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-slide>
-  </ion-slides>
-
-  <ion-row class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="bookmark-outline"></ion-icon>
-      {{ 'On Sale Products' | translate }}
-    </ion-button>
-  </ion-row>
-
-  <ion-slides [options]="sliderConfig">
-    <ion-slide *ngFor="let p of shared.tab2">
-      <app-product [data]="p" [type]="'normal'"></app-product>
-    </ion-slide>
-    <ion-slide>
-      <ion-button fill="clear" (click)="openProducts('special')"> {{'Shop More'| translate}}
-        <ion-icon name="arrow-redo-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-slide>
-  </ion-slides>
-  <ion-row class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="list-outline"></ion-icon>
-      {{ 'Featured Products' | translate }}
-    </ion-button>
-  </ion-row>
-
-  <ion-slides [options]="sliderConfig">
-    <ion-slide *ngFor="let p of shared.tab3">
-      <app-product [data]="p" [type]="'normal'"></app-product>
-    </ion-slide>
-    <ion-slide>
-      <ion-button fill="clear" (click)="openProducts('most liked')"> {{'Shop More'| translate}}
-        <ion-icon name="arrow-redo-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-slide>
-  </ion-slides>
-  <!-- For Vendor List -->
-  <!--<app-vendor-list></app-vendor-list>-->
-  <!-- recently view Heading -->
-  <ion-row *ngIf="shared.recentViewedProducts.length!=0" class="top-icon-header">
-    <ion-button fill="clear">
-      <ion-icon slot="start" name="list-outline"></ion-icon>
-      {{'Recently Viewed'|translate}}
-    </ion-button>
-  </ion-row>
-  <!-- recently viewed swipe slider -->
-  <ion-slides #recentSlider [options]="sliderConfig">
-    <ion-slide *ngFor="let p of shared.recentViewedProducts">
-      <app-product [data]="p" [type]="'recent'"></app-product>
-    </ion-slide>
-  </ion-slides>
-
+  </ion-list>
 
 </ion-content>

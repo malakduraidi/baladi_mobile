@@ -50,6 +50,16 @@ const routes: Routes = [
           productsPage
         ]
       },
+      {
+        path: 'supplier',
+        children: [
+          {
+            path: '', loadChildren: () => import('../home-pages/home4/home4.module').then(m => m.Home4PageModule)
+          },
+          productDetailPage,
+          productsPage
+        ]
+      },
       
       {
         path: 'home7',

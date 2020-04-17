@@ -17,6 +17,7 @@ import { CategoriesComponent } from '../categories/categories.component';
 import { PipesModule } from 'src/pipes/pipes.module';
 import { TimerComponent } from '../timer/timer.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { OrderItemComponent } from 'src/components/order-item/order-item.component';
 
 
 
@@ -28,7 +29,8 @@ import { TranslateModule } from '@ngx-translate/core';
     SlidingTabsComponent,
     ScrollingFeaturedProductsComponent,
     CategoriesComponent,
-    TimerComponent
+    TimerComponent,
+    OrderItemComponent
   ],
   exports: [
     BannerComponent,
@@ -37,7 +39,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ScrollingFeaturedProductsComponent,
     CategoriesComponent,
     TimerComponent,
-    TranslateModule
+    TranslateModule,
+    OrderItemComponent
   ],
   imports: [
     IonicModule,
