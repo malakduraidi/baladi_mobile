@@ -4,7 +4,7 @@
       <ion-img src="assets/cart.png"  style="height: 30px" alt="logo" slot="end"></ion-img>
     <ion-searchbar  style="width: 300px" placeholder="{{'Search'|translate}}" >
     </ion-searchbar>
-    
+
   </ion-toolbar>
 </ion-header>
 
@@ -96,6 +96,7 @@
   <app-sliding-tabs [type]="'text'"></app-sliding-tabs>
 
 </ion-content>
+
 <ion-fab vertical="bottom" horizontal="end" *ngIf="scrollTopButton">
   <ion-fab-button color="secondary" (click)="scrollToTop()">
     <ion-icon name="arrow-up-outline"></ion-icon>
